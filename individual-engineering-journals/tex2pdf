@@ -1,0 +1,8 @@
+#!/bin/bash
+
+# chmod +x tex2pdf
+# ./tex2pdf jawaidss
+
+latex $1.tex
+dvipdf $1.dvi
+rm -r $1.aux $1.dvi $1.log

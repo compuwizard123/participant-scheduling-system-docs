@@ -1,0 +1,70 @@
+Individual Engineering Journal:
+A. What’s an engineering journal?
+Engineers and designers use these to write down ideas and to document what they did. They always
+have dated entries, because they sometimes are used as “proof” of who thought of an idea first, like
+in patent applications.
+At NCR and at Bell Labs, these were hardbound books, and we always wrote project and meeting
+notes in these, as well as our own ideas about new stuff. The big joke was that, at a meeting, the
+engineers would all pull out an engineering journal, and the managers would pull out a day planner,
+and this was how you knew who was who! Anyway, in design meetings, we documented who said
+what and how decisions were made, which was very important to have as a reference.
+Now that we’re in the post-modern age, you probably want to try doing such a journal electronically
+(via twitter, a project blog, or as part of project management system such as Trac).
+We’ve done these for a long time in other SE classes, and I’ll show a couple examples of contents
+below.
+B. How will we use these in class?
+For 371, what I’d like you to do is the following:
+1. Start your own personal journal. (I.e., One per person.)
+2. Use it to record activities related to your team project.
+3. Keep it up to date soon after team activities, if not “during.”
+4. Turn it in during every milestone, so I can look at it and/or grade it as a part of your work.
+Turn in the whole thing every time.
+5. At the end of the course, use it to consider what was most important to you, etc.
+What I will look for in the journal:
+1. It describes what you contributed personally to your teams’ project that week.
+2. It discusses team interactions, from your perspective. E.g., what happened in team
+meetings?
+3. It describes new ideas you had, as these came to mind.
+4. It also describes new problems you thought of, related to your team’s project.
+5. It says from your perspective how the team made decisions and dealt with action items.
+E.g., How did the team decide the look and feel for the user screens?
+6. It reflects on earlier decisions – later entries should look back on what you did before.
+7. It talks about plans for completing the project, like how risks are being handled, and what
+you plan to do about it.
+C. Examples of journal entries from earlier SE classes:
+Today we decided to use a map-based mental model for the interface. This model will focus the
+interview questions that are asked before the software is shown. It also has an impact in how the
+software will be built.
+Determined that a user must be notified of an incoming request, so created a method DisplayNotification
+which takes a type and a user (both Strings). The arguments tell what type of message to display and the user
+the notification is coming from. By using the notification, a user may accept or reject a file transfer.
+As a consequence, the DisplayNotification has been made to accommodate for other types of dialog
+messages for any future messages to be displayed to the user. Also, I will create another
+DisplayNotification, which only takes a type to accommodate for notifications, which do not come
+from another user. The DisplayNotification method allows for the creation of multiple types of
+dialog message to display to the user.
+We interviewed several users for the system. We used our people we knew who were students at Rose. We used a
+variety of majors so we got a variety of technical skill levels. We picked BMEs, MEs, Math, Econ, etc. The
+interviews went smoothly. After asking the pre-test questions, we gave a quick overview of the application
+concepts and we let them loose. Then, we asked the post-interview questions. For three of the participants, I
+wrote down the participants' answers and typed them up afterwards. Jeremy took notes for the other three.
+Wednesday, April 9, 2008
+-Use cases:
+-Considered administrative use cases, but could not think of any.
+-The system does not need to be installed, it does not have any excess files, and all in game items are user-level.
+|The only thing administrative would be distribution of the files, which seems excessive to put into a use case.
+-Remaining documents were updated as seemed appropriate. Most of the documents were kept up to date
+locally.
+|Final modifications were made to get them up to par with this project.
+-
+Ran into timing problems as an overlooked project overlapped with time slotted for this one.
+Dear Journal,
+We discussed today that it was ok to do page redirects within the View, as doing so does not interact
+with the Model in any way. Also, we originally had the Model sending redirect requests, but
+determined that these requests should be sent to the Controller first and the Controller should be
+the one doing the redirecting.
+Prior to conducting the interviews, it was not decided if the kitty should be thrown to the left side or the right side.
+However, as the interviews revealed, all users seem to unconsciously prefer throwing the kitty to the right side.
+It should be noted that all interviewed users are right handed, and have also played similar implementations of this game.
+It could be that right-handed individuals simply expect objects to travel across the screen from left to right. Or it could
+also be that the users are all unfairly biased from having played similar games before.
