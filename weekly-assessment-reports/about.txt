@@ -1,0 +1,9 @@
+Weekly Assessment Reports
+Every Friday at noon, you should submit (as a team) a weekly status report. Status reports are to
+follow the template (this will be the only template you'll be given for this class) shown below, should
+be signed, and delivered in hardcopy to your instructor. These will be graded based on adherence to
+the template, completeness, accuracy, and content. An updated copy of the Weekly Status Report
+must be sent to the project manager 12 hours in advance of the “project manager meeting”.
+The purpose of the report is to record the following in a consistent manner and place: what tasks
+must be done, when they must be begun and finished, who is responsible for accomplishing them,
+and where they stand with respect to their completion.
