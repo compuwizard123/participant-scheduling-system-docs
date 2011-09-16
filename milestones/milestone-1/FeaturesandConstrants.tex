@@ -1,0 +1,99 @@
+
+\documentclass[11pt]{article}
+	\addtolength{\oddsidemargin}{-.875in}
+	\addtolength{\evensidemargin}{-.875in}
+	\addtolength{\textwidth}{1.75in}
+
+	\addtolength{\topmargin}{-1.75in}
+	\addtolength{\textheight}{1.75in}
+\begin{document}
+
+\pagestyle{empty}
+\begin{table}
+  \footnotesize
+  \caption{Features}
+    \begin{tabular}{| p{2.5cm} | c | c | p{1.25cm} | p{1.5cm} | p{1.5cm} | p{1.25cm} | p{3.25cm}|}
+    \hline
+    Feature & Status & Priority & Effort & Risk  & Stability & Target Release & Reason \\
+    \hline
+    Browse Experiment & Approved & Critical & Medium & Medium - High & Low - Medium & 1st release & Lets experiments be advertised better and to display the experiments \\
+    \hline
+    Store Experiments & Approved & Critical & Medium & Low   & High  & 1st release & Store experiment for the data to be web based. \\
+    \hline
+    Levels of Authentication & Approved & Critical & Medium & High  & Medium & 1st release  & Have levels of admins, workers and participants in order to control privacy issues and other sensitive data \\
+    \hline
+    Schedule Experiment & Approved & Critical & Medium & Medium - High & Low - Medium & 1st release   & Need to schedule experiments in order to browse them \\
+    \hline
+    Filter Experiments & Approved & Useful & Low-Medium & Low   & High  & 2nd release & Filter the experiments when browsing according to Time, Date, Payment, etc. \\
+    \hline
+    View All Participants for an Individual Experiment & Approved & Important & Low-Medium & low   & High  & 2nd release  & View all of the participants by admins and workers only of individual experiments \\
+    \hline
+    Admin Back End & Approved & Useful & Medium - High & Low   & Low   & 2nd or 3rd release  & A back end for the admins to do their duties from \\
+    \hline
+    Edit/Modify Schedule Slot & Approved & Useful & Medium & Medium & Medium & 2nd or 3rd release   & Modify or Edit schedule from a participants view \\
+    \hline
+    Edit/Modify Schedule Slot & Approved & Important & Medium & Medium & Medium & 2nd release  & Modify or Edit schedule from a workers/admins view \\
+    \hline
+    Notify Participant Reminder & Approved & Useful & Medium & Low   & High  & 4th release  & Send an email or text reminding participants for their experiments \\
+    \hline
+    Form to get User Info & Approved & Useful & Low   & Low   & High  & 4th release  & A form to gather participant Info \\
+    \hline
+    Admin Report & Approved & Useful & High  & Low   & High  & 4th release  & Reports on experiments scheduled with an option for Individual experiments reports \\
+    \hline
+    Ease of Participant Scheduling & Approved & Useful & Medium & Low   & Low   & 4th release  & Make scheduling a near 1 click process \\
+    \hline
+    Overall Schedule & Approved & Useful & Medium & Low   & Low   & 4th release  & Have an overall schedule viewer \\
+    \hline
+    Cancel Schedule Slot & Approved & Important & Low   & Low   & High  & 4th release  & Allow for participants to cancel schedule slots for appointments \\
+    \hline
+    Remove Experiments & Approved & Important & Low   & Low   & High  & 4th release  & Allow for workers or admins to remove schedules \\
+    \hline
+    Tracking of Consent Payment Forms & Proposed & Useful & Medium & Low   & Medium & 5th release  & Allow for workers to check off participants when filling out consent/payment forms \\
+    \hline
+    User Report & Proposed & Useful & Medium & Low   & Medium & 5th release & Allow participants to have a report on new experiments \\
+    \hline
+    Accounts & Proposed & Useful & High  & Low   & Medium & TBD & Accounts for users \\
+    \hline
+    Prevent Scheduling Conflicts & Proposed & Useful & High  & Low   & Medium & TBD & Prevent participants from scheduling 2 experiments at once \\
+    \hline
+    Prevent Scheduling Conflicts & Proposed & Useful & High  & Low   & Medium & TBD  & Prevent 2 rooms from being scheduled at the same time \\
+    \hline
+    Install Scripts & Proposed & Useful & High  & Low   & Low   & TBD & Install scripts for installation \\
+    \hline
+    Documentation for Maintenance and User & Proposed & Useful & High  & High  & Low   & TBD  & Documentation \\
+    \hline
+    \end{tabular}%
+\end{table}%
+
+\newpage
+
+
+	\addtolength{\textwidth}{1.75in}
+
+	\addtolength{\topmargin}{-2.875in}
+	\addtolength{\textheight}{1.75in}
+\begin{table}
+
+
+  \caption{Constraints}
+    \begin{tabular}{| r | p{5.5cm} | p{5.5cm} |}
+    \hline
+    Source & Constraint & Rationale \\
+    \hline
+    Systems Mandate & Must be able to be ran on Red Hat Enterprise Linux Server 6.1. & This is the operating system that the client currently uses. \\
+    \hline
+    Technology Mandate & Must use PHP or Python as the programming languages & These are the languages supported by the client \\
+    \hline
+    Databases Mandate & Must use MySQL or PostgreSQL database management systems & These are the database management systems supported by the client. \\
+    \hline
+    Time  & The time constraint on the project is the end of Second Term (Rose Hulman time) & At this point the group is reduced to 1 person. \\
+    \hline
+    Equipment Budget & No new equipment can be bought for the project & The software will be place on an existing server and we have no budget. \\
+    \hline
+    Privacy & Participants must not be able to see who else is participating in a project. & Privacy is key for the experiments. \\
+    \hline
+    \end{tabular}%
+\end{table}%
+
+
+\end{document}
