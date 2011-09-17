@@ -1,3 +1,22 @@
+% define macros
+\newcommand{\need}[6]{
+\subsubsection{What is the need?}
+Use the problem statement template shown in Page 46 of requirements text
+\begin{table}[!hb]
+    \begin{tabular}{|l|l|}
+        \hline
+        The problem of... & {#1} \\ \hline
+        Affects... & {#2} \\ \hline
+        And results in... & {#3} \\ \hline
+        Benefits of a solution... & {#4} \\ \hline
+    \end{tabular}
+\end{table}
+\subsubsection{How is it solved now?}
+{#5}
+\subsubsection{What is a possible solution?}
+{#6}
+}
+
 \documentclass{article}
 \usepackage{geometry} % to change the page dimensions
 \geometry{letterpaper} % or letterpaper (US) or a5paper or....
@@ -28,19 +47,7 @@ The user environment is basically the same between the classes of users listed a
 \subsection{Key Needs}
 List the key problems or needs as perceived by the user. For each user need, answer the following questions
 
-\subsubsection{What is the need?}
-Use the problem statement template shown in Page 46 of requirements text
-\begin{table}[!hb]
-    \begin{tabular}{|l|l|}
-        \hline
-        The problem of... &  \\ \hline
-        Affects... &  \\ \hline
-        And results in... &  \\ \hline
-        Benefits of a solution... &  \\ \hline
-    \end{tabular}
-\end{table}
-\subsubsection{How is it solved now?}
-\subsubsection{What is a possible solution?}
+\need{test}{test}{test}{test}{test}{test}
 
 \subsection{Alternatives and Competition}
 \subsubsection{Google Calendar Appointment Slots}
