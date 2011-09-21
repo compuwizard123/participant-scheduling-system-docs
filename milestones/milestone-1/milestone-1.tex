@@ -1,7 +1,7 @@
 % define macros
 \newcommand{\need}[6]{
 \subsubsection{What is the need?}
-\begin{table}[hb]
+\begin{table}[!h]
     \begin{tabular}{|l|p{12.25cm}|}
         \hline
         The problem of... & {#1} \\ \hline
@@ -18,13 +18,27 @@
 
 \documentclass{article}
 \usepackage{geometry} % to change the page dimensions
+\usepackage{graphicx}
 \geometry{letterpaper} % or letterpaper (US) or a5paper or....
 \geometry{margin=1in} % for example, change the margins to 2 inches all round
 
-\title{Milestone 1}
-\author{Trey Cahill, Chris Gropp, Samad Jawaid, Kevin Risden}
 \begin{document}
-\maketitle
+
+\begin{titlepage}
+\begin{center}
+\includegraphics[width=0.15\textwidth]{rh}\\[1.0cm]
+\textsc{\large Rose-Hulman Institute of Technology}\\[1.5cm]
+\includegraphics[width=0.75\textwidth]{pss}\\[1.0cm]
+\textsc{\large Milestone 1}\\[1.0cm]
+\large Trey Cahill \hspace{0.2cm} Chris Gropp \hspace{0.2cm} Samad Jawaid \hspace{0.2cm} Kevin Risden
+\vfill
+\large \today
+\end{center}
+\end{titlepage}
+
+\tableofcontents
+\newpage
+
 \section{Executive Summary}
 This document's purpose is to detail the participant scheduling system proposed by the Human-Computer Interaction Lab of Wisconsin-Madison. It is the first document describing this project, and contains information on the lab's needs, proposed features, and how the project will affect the lab.
 \section{Introduction}
@@ -63,7 +77,7 @@ For the researchers in the Human-Computer Interaction Lab at the University of W
 
 \subsection{Summary of Capabilities}
 Here are the major benefits and features the product will provide.
-\begin{table}[!hb]
+\begin{table}[!h]
     \begin{tabular}{|l|l|}
         \hline
         Customer Benefit & Supporting Feature \\ \hline
@@ -159,4 +173,10 @@ There is no monetary cost for this project, because the software development, as
         \hline
     \end{tabular}
 \end{table}
+
+\section{References}
+\section{Appendix}
+\section{Index}
+\section{Glossary}
+
 \end{document}
