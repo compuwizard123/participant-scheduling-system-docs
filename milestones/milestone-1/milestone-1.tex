@@ -23,8 +23,17 @@
 \geometry{letterpaper} % or letterpaper (US) or a5paper or....
 \geometry{margin=1in} % for example, change the margins to 2 inches all round
 
-\begin{document}
+% Package for clickable TOC
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks,
+    citecolor=black,
+    filecolor=black,
+    linkcolor=black,
+    urlcolor=black
+}
 
+\begin{document}
 \begin{titlepage}
 \begin{center}
 \includegraphics[width=0.15\textwidth]{rh}\\[1.0cm]
@@ -44,7 +53,7 @@
 This document's purpose is to detail the participant scheduling system proposed by the Human-Computer Interaction Lab of Wisconsin-Madison. It is the first document describing this project, and contains information on the lab's needs, proposed features, and how the project will affect the lab.  The project exists because the lab wishes to unify their schedule information and provide a simple, intuitive interface for prospective participants to sign up for experiments.
 
 \section{Introduction}
-The Human-Computer Interaction Lab at the University of Wisconsin-Madison wants a web-based system to better manage the scheduling of participants for their studies.  These studies range from one-on-one experiments to group interactions, and many of them involve the robot used by the lab.  Currently, each researcher arranges studies independently via email and is responsible for scheduling rooms, avoiding conflicts, and notifying participants of changes; unifying this information onto one system simplifies all of these tasks.  To the client, the most important benefit of a unified system is the ability for participants to easily browse all available experiments, which is not possible over email.  However, a variety of other functionality should be integrated into this utility to take advantage of the unity of information; most notable is recognizing room conflicts when scheduling studies, since the lab has only one robot and it cannot be moved.
+The Human-Computer Interaction Lab at the University of Wisconsin-Madison wants a web-based system to better manage the scheduling of participants for their studies.  These studies range from one-on-one experiments to group interactions, and many of them involve the robot used by the lab.  Currently, each researcher arranges studies independently via email and is responsible for scheduling rooms, avoiding conflicts, and notifying participants of changes; unifying this information onto one system simplifies all of these tasks.  To the client, the most important benefit of a unified system is the ability for participants to easily browse all available experiments, which is not possible over email.  However, a variety of other functionality should be integrated into this utility to take advantage of the unity of information; most notable is recognizing room conflicts when scheduling studies, since the lab has only one robot and it cannot be moved.\cite{website:HCI}
 
 \section{Client Background}
 The client is the Human-Computer Interaction Lab at the University of Wisconsin-Madison. Their research focus is the on the way humans perceive computers, and how this perception influences their actions. The main goal is to learn about this interaction through making hypotheses, experimenting, analysing the data, and then publishing papers on the results.
@@ -203,7 +212,11 @@ Documentation and Install scripts are both useful priority.  The effort will be 
     \end{tabular}
 \end{table}
 
-% \section{References}
+% fix for bibliography title
+\renewcommand\refname{\section{References}}{\vspace*{-12mm}}
+\bibliographystyle{plain}
+\bibliography{bibliography}
+
 % \section{Appendix}
 % \section{Index}
 % \section{Glossary}
