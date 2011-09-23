@@ -40,13 +40,13 @@
 \newpage
 
 \section{Executive Summary}
-This document's purpose is to detail the participant scheduling system proposed by the Human-Computer Interaction Lab of Wisconsin-Madison. It is the first document describing this project, and contains information on the lab's needs, proposed features, and how the project will affect the lab.
+This document's purpose is to detail the participant scheduling system proposed by the Human-Computer Interaction Lab of Wisconsin-Madison. It is the first document describing this project, and contains information on the lab's needs, proposed features, and how the project will affect the lab.  The project exists because the lab wishes to unify their schedule information and provide a simple, intuitive interface for prospective participants to sign up for experiments.
 
 \section{Introduction}
 The Human-Computer Interaction Lab at the University of Wisconsin-Madison wants a web-based system to better manage the scheduling of participants for their studies.  These studies range from one-on-one experiments to group interactions, and many of them involve the robot used by the lab.  Currently, each researcher arranges studies independently via email and is responsible for scheduling rooms, avoiding conflicts, and notifying participants of changes; unifying this information onto one system simplifies all of these tasks.  To the client, the most important benefit of a unified system is the ability for participants to easily browse all available experiments, which is not possible over email.  However, a variety of other functionality should be integrated into this utility to take advantage of the unity of information; most notable is recognizing room conflicts when scheduling studies, since the lab has only one robot and it cannot be moved.
 
 \section{Client Background}
-The client is the Human-Computer Interaction Lab at the University of Wisconsin-Madison. They are primarily involved with studying the interaction between computers and humans. The main goal is to learn about this interaction through making hypotheses, experimenting, analysing the data, and then publishing papers on the results.
+The client is the Human-Computer Interaction Lab at the University of Wisconsin-Madison. Their research focus is the on the way humans perceive computers, and how this perception influences their actions. The main goal is to learn about this interaction through making hypotheses, experimenting, analysing the data, and then publishing papers on the results.
 
 \section{Current System}
 Researchers each have their own method of handling participant scheduling. For most the current system is to have the participants email the individual researcher and then that research then records the time slot in some sort of excel sheet. Other researchers have tried Google Calendar appointment slots; while this is a better system, not everyone uses it and the client believes it is too complex for most participants and some researchers.  Addressing the lack of unified data and superfluous effort on the part of the participants is the primary goal of the project.
@@ -155,6 +155,31 @@ There is no monetary cost for this project, because the software development, as
     \end{tabular}
 \end{table}
 \clearpage
+
+The Browse Experiments feature and Persistent Experiment Storage both had a Priority of Critical since they both must be implemented for even a very basic version of the scheduling System.  The effort on both was a medium as with a team of two, there would be a managable amount of work.  Browse Experiments has a stability of medium since it is up for change upon the client seeing the UI.  Perisitent Experiment Storage has a stability of high since once implemented has little chance of being changed.
+
+Participant Schedule Experiment has a priority of critical since the participants must be able to sign themselves up for an experiment for the project to be successful.  Again, the effort is medium since with two people the work would be managable.  THe risk is high on this feature, since the success of the project has a dependence on the feature.  The stability would be medium since the steps are unlikely to change, but the UI could easily change.
+
+Levels of Authentication is a useful priority because it would not be nessecary for there to be an actual Admin since the users trust each other, but this would be a nice feature.  The effort and stability are medium since the freature may change some, but only smaller parts of the feature, while still being a very managable task.
+
+Filter Experiments has a priotiy of userful, since it might only apply to users in certain situations.  Filer Experiments and Experiment Participants have a low risk, since the project does not depend on their success.  They both also have a stability of high, since changes are unlikely to happen.  The effort on Filter Experiments is medium, since there are some areas of the feature, such as what to filter by, that have not been estabilished.  The  effort on Experiment Participants is low since a simple SQL query will do most of the job.
+
+Cancel Experiment Appointment, Modifiy Experiment, and Add Experiment get and effort of Medium, since most deal with SQL and some logic on the backend.  They also have a risk of medium, since a mistake while implementing these features could create a difficult to find bug elsewhere.  The stability is medium, since parts of the database could change slightly.
+
+Notify Participant When Creating Appointment, Notify Participant Appointment Reminder, and Notify Participant Appointment Cancellation Reminder all have a priority of useful since they would be nice to have, but are not vital to the projects success.  They all have an effort of medium since they involve a persons email, but could be reduced to low, depending of the framework used.  Their risk is low, since a failure here creates no problems else where in the project, nor does a mistake spread else where in the project.  The stability is high on these since they are unlikely to change.
+
+User Information Form has a priority of critical since the user must enter their information when scheduling for an experiment.  The effort is low since this will be a simple UI, but the Risk is High since the User information must be stored for the experiment.  The stability is high since all that is needed is name, phone number, and email.  
+
+Export Experiment Particpant List is a useful feature, that has a high effort due to formatting of the report.  The risk is low though, since the feature is not critical in the release of the product.  Stability is high due to the feature being very specific.
+
+An All Experiments Calendar would be useful for the future participants.  The effort is medium because it would be an extenstion of the Browse Experiments feature.
+
+Remove Experiments has a priority of Important, since, although rare, experiments maybe cancelled. The effort is low since most of it will be taken care with an SQL query.  Also, a stability of high is given because of  how specific the feature is described.
+
+Tracking of Constent Payment Forms, User Report, Accounts, Prevent Scheduling Confilicts for the Participant, and Prevent Scheduling Conflicts for the Admin have all be rejected, since the client does not need theses features.
+
+Documentation and Install scripts are both useful priority.  The effort will be high, since there is complexiticy associtated with the Install scripts and Documentation is difficult to keep up to date.  The stability would be low since the definition could change.
+
 \section{Solution Constraints}
 \begin{table}[!h]
     \begin{tabular}{|l|p{5.5cm}|p{5.5cm}|}
@@ -177,7 +202,7 @@ There is no monetary cost for this project, because the software development, as
 \end{table}
 
 \section{References}
-\section{Appendix}
+% \section{Appendix}
 \section{Index}
 \section{Glossary}
 
