@@ -1,0 +1,43 @@
+Sparks:
+browse experiment -> Filter Experiments
+Participant schedules Experiment -> User Info Form (This feature will be removed, but please include here)
+Notifiy Partipant
+
+Samad:
+List Experiment Participants
+Cancel Experiment appointment
+
+Kevin:
+add Experiment
+modifiy Experiment
+Remove Experiment
+
+
+Trey:
+Export Experiment Participant LIst
+Canlendar of all Experiments
+
+Please do B and C on each of these
+This is due by Wed.
+
+We are spending Wed doing DFD's.
+
+Tomorrow - Meeting with Allie in CSSE conference Room at 11:45.
+
+Revised story board.
+
+New Questions:
+- Cancellation:1) name cell email if they match up then cancelled
+2) enter pin and will then cancel
+3) notification email link
+4) any other ideas
+
+- Is Email and/or Cell optional for registering for an experiment?
+
+- Do they have multiple Part Experiments (Part 1 of exp on day x, Part 2 of exp on day z)?
+
+
+We will send her Inital Document (M1)
+
+Any Feed back from feature list or story board?
+
