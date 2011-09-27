@@ -1,0 +1,94 @@
+\documentclass{article}
+\title{Use Cases}
+\author{Samad Jawaid}
+
+\begin{document}
+\maketitle
+
+\section{Feature 1}
+\begin{enumerate}
+\item[A.] Name: List Experiment Participants
+\item[B.] Brief description: Researcher logs in and views a list of all participants for a selected experiment.
+\item[C.] Actors: Researcher
+\item[D.] Basic flow
+    \begin{enumerate}
+    \item[1.] Researcher logs in
+    \item[2.] System displays table of researcher's experiments
+    \item[3.] Researcher selects experiment from table
+    \item[4.] System displays list of all participants for selected experiment
+        \begin{table}
+            \begin{tabular}{|l|l|l|l|}
+                \hline
+                Name       & Phone number   & Email address          & Date/time      \\ \hline
+                First Last & (123) 123-4567 & first.last@example.com & 2011-9-1 13:00 \\
+                First Last & (123) 123-4567 & first.last@example.com & 2011-9-1 13:00 \\
+                First Last & (123) 123-4567 & first.last@example.com & 2011-9-1 13:00 \\
+                First Last & (123) 123-4567 & first.last@example.com & 2011-9-1 13:00 \\
+                First Last & (123) 123-4567 & first.last@example.com & 2011-9-1 13:00 \\
+                \hline
+            \end{tabular}
+        \end{table}
+    \end{enumerate}
+\item[E.] Alternate flows
+    \begin{itemize}
+    \item Researcher does not own any experiments
+        \begin{itemize}
+        \item (2) displays an empty table
+        \item He cannot proceed past (2) until he creates an experiment or is added to another researcher's
+        \end{itemize}
+    \item Selected experiment has no participants
+        \begin{itemize}
+        \item (4) displays an empty table
+        \item Nothing is displayed in (4) until a participant signs up for the selected experiment
+        \end{itemize}
+    \end{itemize}
+\item[F.] Pre-conditions
+    \begin{itemize}
+    \item System is running
+    \item System is in ready state
+    \item Researcher has account with correct permissions/groups
+    \end{itemize}
+\item[G.] Post-conditions
+    \begin{itemize}
+    \item Researcher knows who is signed up to participate in his selected experiment or there are no experiments/participants
+    \end{itemize}
+\end{enumerate}
+
+\section{Feature 2}
+\begin{enumerate}
+\item[A.] Name: Cancel Experiment Appointment
+\item[B.] Brief description: Participant logs in and cancels an appointment.
+\item[C.] Actors: Participant (User)
+\item[D.] Basic flow
+    \begin{enumerate}
+    \item[1.] Participant logs in
+    \item[2.] System displays table of participant's appointments
+    \item[3.] Participant selects appointment from table
+    \item[4.] System displays details for selected appointment
+    \item[5.] Participant selects delete
+    \item[6.] System displays confirmation prompt
+    \item[7.] Participant selects confirm: appointment is deleted and system returns to (2) with an affirmation message
+    \item[8.] Participant selects cancel: system returns to (5)
+    \end{enumerate}
+\item[E.] Alternate flows
+    \begin{itemize}
+    \item Participant has no appointments
+        \begin{itemize}
+        \item (2) displays an empty table
+        \item He cannot proceed past (2) until he signs up for an experiment
+        \end{itemize}
+    \end{itemize}
+\item[F.] Pre-conditions
+    \begin{itemize}
+    \item System is running
+    \item System is in ready state
+    \item Participant has account
+    \end{itemize}
+\item[G.] Post-conditions
+    \begin{itemize}
+    \item Participant deleted selected appointment or participant cancelled operation
+    \item Researcher(s) owning said appointment's experiment are notified via email
+    \end{itemize}
+\end{enumerate}
+
+\end{document}
