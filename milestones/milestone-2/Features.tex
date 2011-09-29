@@ -1,0 +1,109 @@
+% define macros
+\newcommand{\need}[6]{
+\subsubsection{What is the need?}
+\begin{table}[!h]
+    \begin{tabular}{|l|p{12.25cm}|}
+        \hline
+        The problem of... & {#1} \\ \hline
+        Affects... & {#2} \\ \hline
+        And results in... & {#3} \\ \hline
+        Benefits of a solution... & {#4} \\ \hline
+    \end{tabular}
+\end{table}
+\subsubsection{How is it solved now?}
+{#5}
+\subsubsection{What is a possible solution?}
+{#6}
+}
+
+\documentclass{article}
+\usepackage[parfill]{parskip} % to begin paragraphs with an empty line rather than an indent
+\usepackage{geometry} % to change the page dimensions
+\usepackage{graphicx}
+\geometry{letterpaper} % or letterpaper (US) or a5paper or....
+\geometry{margin=1in} % for example, change the margins to 2 inches all round
+
+\begin{document}
+\begin{table}[!h]\footnotesize
+    \begin{tabular}{|p{.5cm}|p{2.5cm}|c|c|p{1.25cm}|p{1cm}|p{1.25cm}|p{1cm}|p{3.75cm}|}
+        \hline
+         ID & Feature & Status & Priority & Effort & Risk & Stability & Target Release & Reason \\
+        \hline
+        1 & Browse Experiment & Approved & Critical & Medium & Medium & Medium & 1st & Lets experiments be advertised better and to display the experiments \\
+        \hline
+        2 & Persistent Experiment Storage & Approved & Critical & Medium & Low & High & 1st & Store experiment for the data to be web based. \\
+        \hline
+        3 & Levels of Authentication & Approved & Useful & Medium & High & Medium & 3rd & Have levels of administers, workers and participants in order to control privacy issues and other sensitive data \\
+        \hline
+        4 & Participant Schedule Experiment & Approved & Critical & Medium & Medium & Medium & 1st & Participant can schedule experiment slot \\
+        \hline
+        5 & Filter Experiments & Approved & Useful & Medium & Low & High & 2nd & Filter the experiments when browsing according to Time, Date, Payment, etc. \\
+        \hline
+        6 & Experiment Participants & Approved & Important & Low & Low & High & 2nd & View all of the participants by admins and workers only of individual experiments \\
+        \hline
+        7 & Cancel Experiment Appointment & Approved & Useful & Medium & Medium & Medium & 3rd & Cancel participant scheduled appointment \\
+        \hline
+        8 & Add Experiment & Approved & Important & Medium & Medium & Medium & 2nd & Add experiment from admins view \\
+        \hline
+        9 & Modify Experiment & Approved & Important & Medium & Medium & Medium & 2nd & Modify or Edit experiment from admins view \\
+        \hline
+        10 & Notify Participant when Creating Appointment & Approved & Useful & Medium & Low & High & 4th & Send an email reminding participants of participation in an experiment \\
+        \hline
+        11 & Notify Participant Appointment Reminder & Approved & Useful & Medium & Low & High & 4th & Send an email or text reminding participants for their experiments \\
+        \hline
+         12 & Notify Participant Appointment Cancellation Reminder & Approved & Useful & Medium & Low & High & 4th & Send an email or text reminding/telling participants of cancellation of their experiments \\
+        \hline
+        13 & Export Experiment Participant List & Approved & Useful & High & Low & High & 4th & Reports on experiments scheduled with an option for Individual experiments reports \\
+        \hline
+        14 & All Experiments Calendar & Approved & Useful & Medium & Low & Low & 4th & Have an overall schedule viewer \\
+        \hline
+        15 & Remove Experiments & Approved & Important & Low & Low & High & 4th & Allow for workers or administers to remove schedules \\
+        \hline
+        16 & Tracking of Consent Payment Forms & Rejected & Useful & Medium & Low & Medium & N/A & Allow for workers to check off participants when filling out consent/payment forms \\
+        \hline
+        17 & User Report & Rejected & Useful & Medium & Low & Medium & N/A & Allow participants to have a report on new experiments \\
+        \hline
+        18 & Accounts & Approved & Critical & High & Low & Medium & N/A & Accounts for participant \\
+        \hline
+        19 & Prevent Scheduling Conflicts (Participant) & Approved & Useful & High & Low & Medium & N/A & Prevent participants from scheduling 2 experiments at the same time \\
+        \hline
+        20 & Prevent Scheduling Conflicts (Administer) & Approved & Useful & High & Low & Medium & N/A & Prevent 2 rooms from being scheduled at the same time \\
+        \hline
+        21 & Install Scripts & Proposed & Useful & High & Low & Low & TBD & Install scripts for installation \\
+        \hline
+        22 & Documentation for Maintenance and User & Approved & Useful & High & High & Low & Ongoing & Documentation \\
+        \hline
+    \end{tabular}
+\end{table}
+\clearpage
+
+The Browse Experiments feature and Persistent Experiment Storage both had a Priority of Critical since they both must be implemented for even a very basic version of the scheduling System.  The effort on both was a medium as with a team of two, there would be a managable amount of work.  Browse Experiments has a stability of medium since it is up for change upon the client seeing the UI.  Perisitent Experiment Storage has a stability of high since once implemented has little chance of being changed.
+
+Participant Schedule Experiment has a priority of critical since the participants must be able to sign themselves up for an experiment for the project to be successful.  Again, the effort is medium since with two people the work would be managable.  The risk is high on this feature, since the success of the project has a dependence on the feature.  The stability would be medium since the steps are unlikely to change, but the UI could easily change.
+
+Levels of Authentication is a useful priority because it would not be nessecary for there to be an actual Admin since the users trust each other, but this would be a nice feature.  The effort and stability are medium since the freature may change some, but only smaller parts of the feature, while still being a very managable task.
+
+Filter Experiments has a priotiy of userful, since it might only apply to users in certain situations.  Filer Experiments and Experiment Participants have a low risk, since the project does not depend on their success.  They both also have a stability of high, since changes are unlikely to happen.  The effort on Filter Experiments is medium, since there are some areas of the feature, such as what to filter by, that have not been estabilished.  The  effort on Experiment Participants is low since a simple SQL query will do most of the job.
+
+Cancel Experiment Appointment, Modifiy Experiment, and Add Experiment get and effort of Medium, since most deal with SQL and some logic on the backend.  They also have a risk of medium, since a mistake while implementing these features could create a difficult to find bug elsewhere.  The stability is medium, since parts of the database could change slightly.
+
+Notify Participant When Creating Appointment, Notify Participant Appointment Reminder, and Notify Participant Appointment Cancellation Reminder all have a priority of useful since they would be nice to have, but are not vital to the projects success.  They all have an effort of medium since they involve a persons email, but could be reduced to low, depending of the framework used.  Their risk is low, since a failure here creates no problems else where in the project, nor does a mistake spread else where in the project.  The stability is high on these since they are unlikely to change.
+
+User Information Form has a priority of critical since the user must enter their information when scheduling for an experiment.  The effort is low since this will be a simple UI, but the Risk is High since the User information must be stored for the experiment.  The stability is high since all that is needed is name, phone number, and email.  
+
+Export Experiment Particpant List is a useful feature, that has a high effort due to formatting of the report.  The risk is low though, since the feature is not critical in the release of the product.  Stability is high due to the feature being very specific.
+
+An All Experiments Calendar would be useful for the future participants.  The effort is medium because it would be an extenstion of the Browse Experiments feature.
+
+Remove Experiments has a priority of Important, since, although rare, experiments maybe cancelled. The effort is low since most of it will be taken care with an SQL query.  Also, a stability of high is given because of  how specific the feature is described.
+
+Accounts, Prevent Scheduling Confilicts for the Participant, and Prevent Scheduling Conflicts for the Administer all have a priority of useful, except for Accounts which Critical, since the other two features mentioned rely upon the Accounts along with cancellation of the experiment slots.  The effort is high for all the features due to the logic needed when implementing the features.  
+
+Tracking of Constent Payment Forms and User Report have all be rejected, since the client does not need theses features.
+
+Documentation and Install scripts are both useful priority.  The effort will be high, since there is complexiticy associtated with the Install scripts and Documentation is difficult to keep up to date.  The stability would be low since the definition could change.
+
+\clearpage
+Items 1, 8, 15, 18, and 21 will be assigned to Kevin Risden.  Items 3, 4, 10, 11, and 12 will be assigned to Samad Jawid.  Items 6, 9,14 and 20  will be assigned to Chris Gropp.  Items 2, 5, 7, 13 and 19 will be assigned to Trey Cahill.  The entire team will work on item 22.
+
+\end{document}
