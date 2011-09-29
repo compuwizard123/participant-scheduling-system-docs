@@ -1,0 +1,42 @@
+% define macros
+\newcommand{\need}[6]{
+\subsubsection{What is the need?}
+\begin{table}[!h]
+    \begin{tabular}{|l|p{12.25cm}|}
+        \hline
+        The problem of... & {#1} \\ \hline
+        Affects... & {#2} \\ \hline
+        And results in... & {#3} \\ \hline
+        Benefits of a solution... & {#4} \\ \hline
+    \end{tabular}
+\end{table}
+\subsubsection{How is it solved now?}
+{#5}
+\subsubsection{What is a possible solution?}
+{#6}
+}
+
+\section{User/Stakeholder Description}
+\subsection{User/Stakeholder Profiles}
+The stakeholders for our system fall into two distinct categories, participants and the people in the research lab. These categories then fall into a few subsections that will be described in detail. The participants themselves fall into the categories of technical and non-technical users.
+
+The technical users will desire a rich user experience. Furthermore these users will want the system to be more robust and provide a large number of features to make them feel comfortable. Success to them will include a system that they can customize and work into their already technical work flow.
+
+The non-technical users may or may not have had experience with any sort of web interface. This provides an extra challenge for our solution because we must make the interface intuitive enough that people who are not comfortable with computers can use. A success for the non-technical user would be the ability for them to use the software in a way that does not interfere with their normal daily work flow and they can overcome any hesitancy they have with using computers to schedule their participation in an experiment.
+
+The other class of stakeholders involves people in the research lab. The lab consists of undergraduate students, graduate students, and professors, and their use of the proposed system is varied. Furthermore, since the research lab will be controlling and maintaining the system once in place there is a subclass of the people in the research lab who act as both administrators and maintenance technicians.
+
+Since the research lab is involved with Human-Computer Interaction, many of the people in the lab will be experienced with computers. However, from the client we learned that a few outside researchers who may use the system we develop may not have a large degree of technical knowledge. Therefore we must design the system in a way that permits researchers, students, and professors to setup experiments and look at participant lists in an effective manner. Since these people have been using a rudimentary system before, we must make the new system capable of integrating into their work flow without introducing any more work than done previously. The success for the researchers, students, and professors comes from being able to schedule participants in a way that works effectively and simply from their point of view.
+
+The administrators and maintenance people from the research lab we know are all technically proficient users. This means the system must be simple to maintain and possible expand at a later date if needed. The key responsibilities for the administrator include being able to add and remove other users from the system and ensure that the system is functioning correctly. The maintenance people must ensure that the system is stable and in a working condition when required. The success for the administrator can be defined as having an intuitive management interface that provides them the flexibility they need to perform their duties. For the maintenance people, success can be defined as having a system that is stable and requires little work to keep it operational even over a large number of years.
+
+\subsection{User Environment}
+The user environment is basically the same between the classes of users listed above. The working environment consists of mainly just one user at a time on their own machine joining an experiment. This will stay constant but there may be many users at once on separate computers for any number of experiments. The task length should be fairly minimal and involves them finding an experiment they would like to participant in and then signing up. The entire length of the activity should only take a few minutes as to not inconvenience the user. The only environmental constraint that will be imposed on the user is that they must use a web browser of some sort. This means that the user will be required to have some device that has internet access. The system today involves the user going to a website to find the contact email and then sending the contact an email specifying that they would like to participant in an experiment. The users may have some sort of calendar system that they use so we may have to integrate with it but it is not a hard requirement but instead a possible feature.
+
+\subsection{Key Needs}
+\need{listing and browsing all currently running experiments}{the possible participants of the experiments and the researcher}{less people signing up for the available experiments}{would permit possible participants to see currently running experiments in one place and have easy access to them all in a standard format}{There is no current solution to the problem.}{The possible solution involves having a single page where all the current experiments being held are listed in a format that is easy to browse.}
+\need{signing up for an experiment is a complicated nonstandardized process}{the possible participants of the experiments and the researchers collecting the data}{wasted time and effort signing up and compiling lists of participants for each experiment}{allow participants and researchers to get used to a standardized format of signing up and collecting experiment participants that would be quicker than manually creating the lists}{The current solution is to manually email a researcher that you want to do an experiment with and the researcher must then respond and compile a list of people and times which takes a large amount of time}{The solution would be to have a sign up sheet that looks the same for each experiment with a few optional fields that would then be placed in a database that can be queried later to easily determine the list of participants for each experiment}
+
+\subsection{Alternatives and Competition}
+\subsubsection{Google Calendar Appointment Slots}
+The issues the client mentioned about Google Calendar appointment slots was that there was no way to list all experiments in an easy format and no way to do multiple experiments at once. Furthermore, it would be a hassle to have to compile all the appointment slots into a list of participants for the experiment. The process involved in using Google Calendar appointment slots was also very manual as for each experiment the researcher would need to go through and outline all available times. The approach also did not work well for participants since they would need to navigate to each calendar separately to look at all available times for an experiment.

@@ -1,0 +1,42 @@
+\documentclass{article}
+\usepackage{geometry} % to change the page dimensions
+\usepackage{graphicx}
+\geometry{letterpaper} % or letterpaper (US) or a5paper or....
+\geometry{margin=1in} % for example, change the margins to 2 inches all round
+
+% Package for clickable TOC
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks,
+    citecolor=black,
+    filecolor=black,
+    linkcolor=black,
+    urlcolor=black
+}
+
+\usepackage[parfill]{parskip} % to begin paragraphs with an empty line rather than an indent
+\usepackage{multirow} %This is for making prettier tables and splitting columns and rows.
+\usepackage{supertabular} %This is for making tables that extend over multiple pages
+\usepackage{listings} %This is for listing source code
+%\usepackage{tocbibind} %This is for including the bibliography in the table of contents.
+\usepackage{appendix} %This gives more control over the appendix and how it appears in the table of contents.
+\usepackage{tabularx} %This is to make stretchy columns in tables
+\usepackage[fleqn]{amsmath} %AMS packages give more control over positioning and format of equations
+\usepackage{amssymb}
+\usepackage{amsthm} 
+
+\begin{document}
+\begin{titlepage}
+\begin{center}
+\includegraphics[width=0.15\textwidth]{../images/rh}\\[1.0cm]
+\textsc{\large Rose-Hulman Institute of Technology}\\[1.5cm]
+\includegraphics[width=0.75\textwidth]{../images/pss}\\[1.0cm]
+\textsc{\large Milestone 1}\\[1.0cm]
+\large Trey Cahill \hspace{0.2cm} Chris Gropp \hspace{0.2cm} Samad Jawaid \hspace{0.2cm} Kevin Risden
+\vfill
+\large \today
+\end{center}
+\end{titlepage}
+
+\tableofcontents
+\newpage
