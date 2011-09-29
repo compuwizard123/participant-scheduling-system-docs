@@ -1,6 +1,27 @@
 \section{Use Cases}
 \subsection{Experiments}
 \begin{outline}[enumerate]
+\1 Name: Sign Up for Experiment
+\2 Brief Description: Prospective participant chooses and signs up for an experiment.
+\2 Actors: Participant (henceforth "user")
+\2 Basic Flow: (User can return to a previous step with the "back" options on their browser.)  Each page has a login/logout button, which will follow the use case "Authentication" if clicked.
+\3 Homepage: The system homepage has a button for login, and a table displaying currently running experiments.  Each experiment on the table can be clicked for further details.
+\3 Step 1: User clicks on an experiment button.  This will navigate them to that experiment's page.
+\4 Possible substep: The experiment listing table has options for sorting and filtering.  The user may click these buttons and enter filters without altering flow.
+\3 Experiment Page: Each experiment has a webpage with its name, description, and a list of timeslots.  Each timeslot can be clicked to move to the confimation screen.  There is also a button to join the experiment which will send the user to the confirmation screen without a timeslot selected.
+\3 Step 2: User clicks on a timeslot or the join button.  The system will navigate them to the confirmation page.
+\4 Possible substep: The timeslot listing has options for sorting and filtering.  The user may click these buttons and enter filters without altering flow.
+\3 Step 3: If the system attempts to move to the confirmation page but the user is not authenticated, it will follow the use case "Authentication" first.  Once they have successfully logged in, they will be sent directly to the confirmation page.
+\3 Confirmation Page: This page can only be accessed while logged in.  It displays the experiment name, required qualifications, and a checkbox certifying that the user meets these requirements.  The timeslot list from the experiment page is also on this page, with the timeslot remaining selected if the user did so in step 2.  There is a large "Confirm Appointment" button at the bottom of the page.
+\3 Step 4: The user checks the box, selects a timeslot if they have not already, and clicks the "Confirm Appointment" button.
+\3 Final actions: The system will send the appointment data to the database and return the user to the homepage, with a popup confirming their successful registration.  The system will also send an email with the experiment and timeslot information to the account they used to register.
+\2 Alternate Flows:
+\3 User logs out while on the confirmation page.
+\4 As a user cannot return to this page while logged out (the normal behavior for the Authentication use case), they will be shunted back to the experiment page.  Information provided in step 2 is not guaranteed to remain selected.
+\3 Database reports an error when receiving appointment data.
+\4 Unlikely to occur outside of concurrent modification (two people signing up at the same time), the system will shunt the user back to the confirmation page with the updated available timeslots and provide a popup explaining why this happened.
+
+
 \1 Name: Add Experiment
 \2 Brief Description: Experiments can be created by Administrators and Researchers
 \2 Actors: Administrators and Researchers
