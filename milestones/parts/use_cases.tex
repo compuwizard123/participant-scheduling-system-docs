@@ -20,6 +20,11 @@
 \4 As a user cannot return to this page while logged out (the normal behavior for the Authentication use case), they will be shunted back to the experiment page.  Information provided in step 2 is not guaranteed to remain selected.
 \3 Database reports an error when receiving appointment data.
 \4 Unlikely to occur outside of concurrent modification (two people signing up at the same time), the system will shunt the user back to the confirmation page with the updated available timeslots and provide a popup explaining why this happened.
+\2 Pre-conditions:
+\2 Post-conditions:
+\2 Special Requirements:
+\3 N/A
+
 
 
 \1 Name: Add Experiment
@@ -62,4 +67,121 @@
 \3 System will have recorded the modifications to the experiment or the system will notify the user why the modification of the experiment failed
 \2 Special Requirements:
 \3 N/A
+
+
+\1 Name: List Experiment Participants
+\2 Brief description: Researcher logs in and views a list of all participants for a selected experiment.
+\2 Actors: Researcher
+\2 Basic flow
+\3 Researcher logs in
+\3 System displays table of researcher's experiments
+\3 Researcher selects experiment from table
+\3 System displays list of all participants for selected experiment
+        \begin{table}
+            \begin{tabular}{|l|l|l|l|}
+                \hline
+                Name       & Phone number   & Email address          & Date/time      \\ \hline
+                First Last & (123) 123-4567 & first.last@example.com & 2011-9-1 13:00 \\
+                First Last & (123) 123-4567 & first.last@example.com & 2011-9-1 13:00 \\
+                First Last & (123) 123-4567 & first.last@example.com & 2011-9-1 13:00 \\
+                First Last & (123) 123-4567 & first.last@example.com & 2011-9-1 13:00 \\
+                First Last & (123) 123-4567 & first.last@example.com & 2011-9-1 13:00 \\
+                \hline
+            \end{tabular}
+        \end{table}
+\2 Alternate flows
+\3 Researcher does not own any experiments
+\4 (2) displays an empty table
+\4 He cannot proceed past (2) until he creates an experiment or is added to another researcher's
+\3 Selected experiment has no participants
+\4 (4) displays an empty table
+\4 Nothing is displayed in (4) until a participant signs up for the selected experiment
+\2 Pre-conditions
+\3 System is running
+\3 System is in ready state
+\3 Researcher has account with correct permissions/groups
+\2 Post-conditions
+\3 Researcher knows who is signed up to participate in his selected experiment or there are no experiments/participants
+\2 Special Requirements:
+\3 N/A
+
+
+\1 Name: Cancel Experiment Appointment
+\2 Brief description: Participant logs in and cancels an appointment.
+\2 Actors: Participant (User)
+\2 Basic flow
+\3 Participant logs in
+\3 System displays table of participant's appointments
+\3 Participant selects appointment from table
+\3 System displays details for selected appointment
+\3 Participant selects delete
+\3 System displays confirmation prompt
+\3 Participant selects confirm: appointment is deleted and system returns to (2) with an affirmation message
+\3 Participant selects cancel: system returns to (5)
+\2 Alternate flows
+\3 Participant has no appointments
+\4 (2) displays an empty table
+\4 He cannot proceed past (2) until he signs up for an experiment
+\2 Pre-conditions
+\3 System is running
+\3 System is in ready state
+\3 Participant has account
+\2 Post-conditions
+\3 Participant deleted selected appointment or participant cancelled operation
+\3 Researcher(s) owning said appointment's experiment are notified via email
+\2 Special Requirements:
+\3 N/A
+
+
+\1 Name: Report Experiment Participant Lists
+\2 Brief Description:  When the user is a researcher, the user will be able to export a csv file, filed with the Experiment name and participant and times.
+\2 Actors: Researcher
+\2 Basic Flow:
+\3 The researcher will check what experiments to export to the csv file from the list of experiments in the researcher side view
+\3 The researcher will click “Export to CSV”
+\3 The system will generate a csv file from the selected experiment displaying the name of the experiment and the names of participants with their times
+\3 The system will then start the download of the file to the researchers computer
+\3 When the system has completed 3 and 4, the system will display a message box “Export Complete!”
+\3 The researcher will click “OK” or the exit button on the message box
+\3 The system will be back in the researcher side view.
+\2 Alternative Flow:
+\3 The researcher did not select any experiment.  An error window will appear.
+\3 The system encounters an error when pulling data from the database. An error window will appear
+\3 The system encounters any error when creating the csv file. An error window will appear
+\3 The system cannot download the file to the researcher’s computer. An error window will appear
+\3 The researcher will deny the download of the csv.  A message box will appear
+\3 The user exits the browser
+\2 Preconditions:
+\3 The researcher must be logged in as a researcher
+\3 The system is in the researcher side view
+\3 The researcher must already have experiments scheduled
+\2 Postconditions:
+\3 The system is back in the researcher side view
+\2 Feature mapping:
+\3 Export Experiment Participant List
+
+\1 Name: Calendar/List of All Experiments
+\2 Basic Description: The list will show the soonest to be conducted experiments (10) and will allow for a user to click and view more information on the experiment
+\2 Basic Flow:
+\3 The system loads the first 10 experiments
+\3 The user can scroll down the list
+\3 The user selects an experiment
+\2 Alternative Flow:
+\3The system errors when loading the first 10 experiments from the database
+\3 The user goes to another website
+\3 The user attempts to log into the researcher page and fails
+\3 The user attempts to log into the researcher page and has success
+\3 The user clicks on the next 10 experiments and repeats basic flow 1 to 3
+\3 The user exits the browser
+\2 Precondition:
+\3 The user is on the web page
+\2 Postcondidtion:
+\3 The system is showing an experiment or the browser is on a new page
+\2 Feature mapping:
+\3 All calendar Experiments
+\3 Browse Experiments
+\3 Persistent Experiment Storage
+
+
+
 \end{outline}
