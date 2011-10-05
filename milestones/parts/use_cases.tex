@@ -1,8 +1,9 @@
 \section{Use Cases}
-\subsection{Experiments}
+
+\subsection{Authentication}
 \begin{outline}[enumerate]
 
-\1 Name: Authentication
+\1 {\bf Name: Authentication}
 \2 Brief Description: User logs in, logs out, or creates an account.
 \2 Actors: User
 \2 Basic Flow:
@@ -29,7 +30,55 @@
 \3 Levels of Authentication
 \3 Accounts
 
-\1 Name: Sign Up for Experiment
+\end{outline}
+
+\subsection{Appointments}
+\begin{outline}[enumerate]
+
+
+\1 {\bf Name: Select Experiment}
+\2 Brief Description: Participant views and selects experiment to join
+\2 Actors: Participant (henceforth "user")
+\2 Basic Flow: (User can return to homepage via their browser at any time.)  Each page has a login/logout button, which will follow the use case "Authentication" if clicked.
+\3 Homepage: The system homepage has a table displaying currently running experiments.
+\3 Step 1: User can sort or filter experiment table.
+\3 Step 2: User clicks an experiment.  The system navigates them to that experiment's page.
+\3 Experiment page: Each experiment has a webpage with its name, description, and a list of timeslots, as well as a button to join the experiment.
+\3 Step 3: User reads experiment description and required qualifications.
+\3 Step 4: User can sort or filter timeslot list.
+\3 Step 5: User clicks "join experiment" or a timeslot button.  This takes them to use case "sign up for experiment".
+\2 Alternate Flows:
+\3 User decides to view a different experiment by navigating with their browser or clicking a button on any page.  They are returned to the homepage.
+\2 Pre-conditions:
+\3 System is functional.
+\3 There is at least one experiment currently offered.
+\2 Post-conditions:
+\3 User has clicked "join experiment" or a timeslot button for some experiment.
+
+\1 {\bf Name: Sign up for Experiment}
+\2 Brief Description: Participant enters data and confirms appointment.
+\2 Actors: Participant (henceforth "user")
+\2 Basic Flow:
+\3 Step 1: If the user is not currently logged in, run use case "Authentication".  They must be logged in to continue.
+\3 Confirmation Page: This page is available only while logged in.  It displays experiment name, required qualifications, and a checkbox for the user to verify they meet those qualifications. There is a list of timeslots. There is a "Confirm Appointment" button.
+\3 Step 2: The user selects a timeslot (or lets the system do it for them if they did so in "Select Experiment") and checks the checkbox.
+\3 Step 3: The user clicks the "Confirm Appointment" button.
+\3 If there are no problems with the entered data, the system returns the user to the homepage and displays a message informing them of their successful registration.  The system will also send an email containing the experiment and timeslot information to the email account used to register.
+\2 Alternate Flows:
+\3 User attempts to "Confirm Appointment" before entering all required information/checking the checkbox.
+\4 The system will return them to the confirmation page and inform them of what still needs to be done.
+\3 User logs out while on the confirmation page.  The system will return them to the experiment page.
+\2 Pre-conditions:
+\3 System is functional.
+\3 User has selected an experiment via the "Select Experiment" use case.
+\3 The selected experiment has at least one viable timeslot.
+\2 Post-conditions:
+\3 Database has added appointment to user and experiment data.
+\3 (Side effect) user is authenticated.
+\2 Special Requirements:
+\3 N/A
+
+\1 {\bf Name: Sign Up for Experiment}
 \2 Brief Description: Prospective participant chooses and signs up for an experiment.
 \2 Actors: Participant (henceforth "user")
 \2 Basic Flow: (User can return to a previous step with the "back" options on their browser.)  Each page has a login/logout button, which will follow the use case "Authentication" if clicked.
@@ -50,15 +99,20 @@
 \4 Unlikely to occur outside of concurrent modification (two people signing up at the same time), the system will shunt the user back to the confirmation page with the updated available timeslots and provide a popup explaining why this happened.
 \2 Pre-conditions:
 \3 System is functional.
+\3 There is at least one experiment currently offered.
 \2 Post-conditions:
 \3 Database has added appointment to user and experiment data.
 \3 (Side effect) User is authenticated.
 \2 Special Requirements:
 \3 N/A
 
+\end{outline}
+\subsection{Experiment Management}
+\begin{outline}[enumerate]
 
 
-\1 Name: Add Experiment
+
+\1 {\bf Name: Add Experiment}
 \2 Brief Description: Experiments can be created by Administrators and Researchers
 \2 Actors: Administrators and Researchers
 \2 Basic Flow: (user can cancel at any time and follow Alt Flow 1)
@@ -78,14 +132,14 @@
 \2 Special Requirements:
 \3 N/A
 
-\1 Name: Modify Experiment (user can cancel at any time and follow Alt Flow 1)
+\1 {\bf Name: Modify Experiment (user can cancel at any time and follow Alt Flow 1)}
 \2 Brief Description: Experiments can be modified by Administrators and Researchers to change all assets of the experiment
 \2 Actors: Administrators and Researchers
 \2 Basic Flow:
 \3 System will display experiment fields (name, description, qualifications, schedule time, schedule slots, and participant list)
 \3 User will click on desired field to modify [Alt Flow 3]
-\3 System will allow field that user choose to be editable in line
-\3 User will then change field as desired and click out or save when finished
+\3 System will allow field that user chooses to be editable in line
+\3 User will then change field as desired and click away from the field or save when finished
 \3 System will update the database with the modified experiment information
 \2 Alternate Flows:
 \3 User cancels out of creating an experiment. System will return user to the page where user came from
@@ -93,14 +147,17 @@
 \3 User deletes an experiment. System will remove experiment from database after user confirmation and display a message to the user indicating this was successful
 \2 Pre-conditions:
 \3 User is an Administrator and/or a Researcher and has authenticated
-\3 User choose experiment through one of the experiment views
+\3 User chose experiment through one of the experiment views
 \2 Post-conditions:
 \3 System will have recorded the modifications to the experiment or the system will notify the user why the modification of the experiment failed
 \2 Special Requirements:
 \3 N/A
 
+\end{outline}
+\subsection{Reports}
+\begin{outline}[enumerate]
 
-\1 Name: List Experiment Participants
+\1 {\bf Name: List Experiment Participants}
 \2 Brief description: Researcher logs in and views a list of all participants for a selected experiment.
 \2 Actors: Researcher
 \2 Basic flow
@@ -137,7 +194,7 @@
 \3 N/A
 
 
-\1 Name: Cancel Experiment Appointment
+\1 {\bf Name: Cancel Experiment Appointment}
 \2 Brief description: Participant logs in and cancels an appointment.
 \2 Actors: Participant (User)
 \2 Basic flow
@@ -164,17 +221,17 @@
 \3 N/A
 
 
-\1 Name: Report Experiment Participant Lists
+\1 {\bf Name: Report Experiment Participant Lists}
 \2 Brief Description:  When the user is a researcher, the user will be able to export a csv file, filed with the Experiment name and participant and times.
 \2 Actors: Researcher
 \2 Basic Flow:
 \3 The researcher will check what experiments to export to the csv file from the list of experiments in the researcher side view
 \3 The researcher will click “Export to CSV”
 \3 The system will generate a csv file from the selected experiment displaying the name of the experiment and the names of participants with their times
-\3 The system will then start the download of the file to the researchers computer
+\3 The system will then start the download of the file to the researcher's computer
 \3 When the system has completed 3 and 4, the system will display a message box “Export Complete!”
 \3 The researcher will click “OK” or the exit button on the message box
-\3 The system will be back in the researcher side view.
+\3 The system will return to the researcher side view.
 \2 Alternative Flow:
 \3 The researcher did not select any experiment.  An error window will appear.
 \3 The system encounters an error when pulling data from the database. An error window will appear
@@ -191,7 +248,7 @@
 \2 Feature mapping:
 \3 Export Experiment Participant List
 
-\1 Name: Calendar/List of All Experiments
+\1 {\bf Name: Calendar/List of All Experiments}
 \2 Basic Description: The list will show the soonest to be conducted experiments (10) and will allow for a user to click and view more information on the experiment
 \2 Basic Flow:
 \3 The system loads the first 10 experiments
