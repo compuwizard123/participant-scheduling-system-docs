@@ -112,6 +112,7 @@
 
 
 
+% What about breaks in between slots?
 \1 {\bf Name: Add Experiment}
 \2 Brief Description: Experiments can be created by Administrators and Researchers
 \2 Actors: Administrators and Researchers
@@ -222,12 +223,12 @@
 
 
 \1 {\bf Name: Report Experiment Participant Lists}
-\2 Brief Description:  When the user is a researcher, the user will be able to export a csv file, filed with the Experiment name and participant and times.
+\2 Brief Description:  When the user is a researcher, the user will be able to export a CSV file, filed with the Experiment name and participant and times.
 \2 Actors: Researcher
 \2 Basic Flow:
-\3 The researcher will check what experiments to export to the csv file from the list of experiments in the researcher side view
+\3 The researcher will check what experiments to export to the CSV file from the list of experiments in the researcher side view
 \3 The researcher will click “Export to CSV”
-\3 The system will generate a csv file from the selected experiment displaying the name of the experiment and the names of participants with their times
+\3 The system will generate a CSV file from the selected experiment displaying the name of the experiment and the names of participants with their times
 \3 The system will then start the download of the file to the researcher's computer
 \3 When the system has completed 3 and 4, the system will display a message box “Export Complete!”
 \3 The researcher will click “OK” or the exit button on the message box
@@ -235,9 +236,9 @@
 \2 Alternative Flow:
 \3 The researcher did not select any experiment.  An error window will appear.
 \3 The system encounters an error when pulling data from the database. An error window will appear
-\3 The system encounters any error when creating the csv file. An error window will appear
+\3 The system encounters any error when creating the CSV file. An error window will appear
 \3 The system cannot download the file to the researcher’s computer. An error window will appear
-\3 The researcher will deny the download of the csv.  A message box will appear
+\3 The researcher will deny the download of the CSV.  A message box will appear
 \3 The user exits the browser
 \2 Preconditions:
 \3 The researcher must be logged in as a researcher
