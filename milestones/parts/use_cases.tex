@@ -1,29 +1,85 @@
 \section{Use Cases}
 
-\subsection{Authentication}
+\subsection{General Behavior}
+
+Every page on the website possesses a ``login/logout/create account" button.  If the user is logged in, follow use case ``Logout".  Otherwise, follow use case ``Login".  In either case, unless noted otherwise, upon completion of that use case, the system will return to the page the button was clicked from.  If that page had user-entered fields, they will be in the same state they were when the user clicked the button.
+
+Every page also possesses a button to return to the system homepage.  This will exit any use case they are currently following and discard any temporarily stored information related to that use case, such as entered fields or selected options.
+
+\subsection{Authentication Use Cases}
 \begin{outline}[enumerate]
 
-\1 {\bf Name: Authentication}
-\2 Brief Description: User logs in, logs out, or creates an account.
+\1 {\bf Name: Login}
+\2 Brief Description: User logs in.
 \2 Actors: User
 \2 Basic Flow:
-\3 Step 1: User clicks the ``login/logout/create account" button from any page.
-\4 The system will record where the user entered this use case from, as well as any entered information.  This is so the system might seamlessly return the user to what they were doing after authentication is complete.
-\4 Alternate Flow: If the user is already logged in, the system will log them out.  They are no longer considered authenticated and may not be able to view their previous page; if so, they will be shunted to the main page.  Exit the use case here.
-\3 Step 2: User prompted for Email and Password.  There is a button labeled ``Create New Account" which will alter the interface, displaying instructions and revealing the fields Name, Phone, and Confirm Password.  After completing these fields, user clicks ``Submit" button.
-\4 If the user didn't expand the ``Create New Account" option, the system sends their login information to the database.  If it matches, continue to step 3.
-\4 Alternate Flow: If the database didn't recognize the email, return to step 2 and expand ``Create New Account".
-\4 Alternate Flow: If the password didn't match the one stored in the database, return to step 2 and display a message informing the user their password was incorrect.
-\3 If the ``Create New Account" area was open, the system will create a new account.
-\4 If the pasword and confirm password fields don't match, return to step 2 and display a message saying so.  Keep all entered information except the password and confirm password fields.
-\4 Query the database to see if it already has an account with that email.  If it does, return to step 2 display a message saying so.
-\4 Send an email to the address listed in the Email field.  If this fails, return to step 2 and display a message saying so.
-\4 Send all entered information to the database to be added.  Continue to step 3.
-\3 Step 3: System displays a message confirming account creation or successful login.  The user is now logged in.  The user will be returned to the page they entered authentication from automatically after 10 seconds, or can click a link to do so immediately.
+\3 User clicks the ``login/logout/create account" button from any page.
+\3 User prompted for Email and Password via text boxes.
+\3 The system sends their login information to the database.  If it matches, continue.
+\3 System displays a message confirming successful login.  The user is now logged in.
+\3 After 10 seconds or when the user clicks a link to do so immediately, the user is navigated out of the login use case as specified in General Behavior.
+\2 Alternate Flows:
+\3 User navigates elsewhere on the website, through their browser or the ``home" button.  Unless the page they attempt to visit requires authentication, this simply drops them out of the use case.
+\3 User entered an email that the database did not recognize.  Run use case ``Account Creation".
+\3 User entered an email recognized by the database but not the password associated with it.  Return to email/password entry, displaying the message ``Incorrect password, please retry."
+\3 System fails to connect to database.  Display the message ``Database unavailable; we are sorry for the inconvenience.  Please try again later."  Then return the user to the page they entered the use case from.
 \2 Pre-conditions:
 \3 System is functional.
+\3 User is not logged in.
+\3 User has already created an account.
 \2 Post-conditions:
-\3 User is logged in or out, the opposite of what they were before.
+\3 User is logged in, or cancelled login process.
+\2 Special Requirements:
+\3 N/A
+\2 Feature Mapping:
+\3 Levels of Authentication
+\3 Accounts
+
+\1 {\bf Name: Logout}
+\2 Brief Description: User logs out.
+\2 Actors: User
+\2 Basic Flow:
+\3 User clicks the ''login/logout/create account" button from any page.
+\3 System displays a message confirming successful logout.  The user is now logged out.
+\3 After 10 seconds or when the user clicks a link to do so immediately, the user is navigated out of the logout use case as specified in General Behavior.
+\2 Alternate Flows:
+\3 User entered this use case from a page not available while logged out (appointment confirmation or researcher interfaces).  The system will return them to the homepage unless otherwise specified.
+\2 Pre-conditions:
+\3 System is functional.
+\3 User is logged in.
+\2 Post-conditions:
+\3 User is logged out.
+\2 Special Requirements:
+\3 N/A
+\2 Feature Mapping:
+\3 Levels of Authentication
+\3 Accounts
+
+\1 {\bf Name: Create Account}
+\2 Brief Description: User creates an account.
+\2 Actors: User
+\2 Basic Flow:
+\3 User clicks the ``login/logout/create account" button from any page.
+\3 The system navigates the user to the login page.
+\3 User clicks the ``create account" button from the login page.
+\3 The system navigates the user to the account creation page.
+\3 User prompted for Email, Name, Phone, Password, and Confirm Password via text boxes.
+\3 User clicks ``Submit" button.
+\3 The system sends the entered information to the database.  If the database reports no errors, continue.
+\3 The system sends an email to the entered email address.  If this reports no errors, continue.
+\3 System displays a message confirming successful account creation.  The user is now logged in.
+\3 After 10 seconds or when the user clicks a link to do so immediately, the user is navigated out of the create account use case as specified in General Behavior.
+\2 Alternate Flows:
+\3 User navigates elsewhere on the website, through their browser or the ``home" button.  Unless the page they attempt to visit requires authentication, this simply drops them out of the use case.
+\3 User clicked ``Submit" before filling in all fields on the account creation page.  System does not leave the page, and displays the message ``All fields must be completed to continue."
+\3 User entered an email already present in the database on the account creation page.  System does not leave the page, and displays the message ``Email already registered."
+\3 User entered different text in the Password and Confirm Password fields on the account creation page.  System does not leave the page, and displays the message ``Password confirmation failed; please re-type it."
+\3 System fails to connect to database.  Display the message ``Database unavailable; we are sorry for the inconvenience.  Please try again later."  Then return the user to the page they entered the use case from.
+\2 Pre-conditions:
+\3 System is functional.
+\3 User is not logged in.
+\2 Post-conditions:
+\3 User is logged in with their new account, or cancelled account creation process.
 \2 Special Requirements:
 \3 N/A
 \2 Feature Mapping:
@@ -39,14 +95,13 @@
 \1 {\bf Name: Select Experiment}
 \2 Brief Description: Participant views and selects experiment to join
 \2 Actors: Participant (henceforth ``user")
-\2 Basic Flow: (User can return to homepage via their browser at any time.)  Each page has a login/logout button, which will follow the use case ``Authentication" if clicked.
-\3 Homepage: The system homepage has a table displaying currently running experiments.
-\3 Step 1: User can sort or filter experiment table.
-\3 Step 2: User clicks an experiment.  The system navigates them to that experiment's page.
+\2 Basic Flow:
+\3 User can sort or filter experiment table.
+\3 User clicks an experiment.  The system navigates them to that experiment's page.
 \3 Experiment page: Each experiment has a webpage with its name, description, and a list of timeslots, as well as a button to join the experiment.
-\3 Step 3: User reads experiment description and required qualifications.
-\3 Step 4: User can sort or filter timeslot list.
-\3 Step 5: User clicks ``join experiment" or a timeslot button.  This takes them to use case ``sign up for experiment".
+\3 User reads experiment description and required qualifications.
+\3 User can sort or filter timeslot list.
+\3 User clicks ``join experiment" or a timeslot button.  This takes them to use case ``sign up for experiment".
 \2 Alternate Flows:
 \3 User decides to view a different experiment by navigating with their browser or clicking a button on any page.  They are returned to the homepage.
 \2 Pre-conditions:
@@ -59,10 +114,10 @@
 \2 Brief Description: Participant enters data and confirms appointment.
 \2 Actors: Participant (henceforth ``user")
 \2 Basic Flow:
-\3 Step 1: If the user is not currently logged in, run use case ``Authentication".  They must be logged in to continue.
+\3 If the user is not currently logged in, run use case ``login".  They must be logged in to continue.
 \3 Confirmation Page: This page is available only while logged in.  It displays experiment name, required qualifications, and a checkbox for the user to verify they meet those qualifications. There is a list of timeslots. There is a ``Confirm Appointment" button.
-\3 Step 2: The user selects a timeslot (or lets the system do it for them if they did so in ``Select Experiment") and checks the checkbox.
-\3 Step 3: The user clicks the ``Confirm Appointment" button.
+\3 The user selects a timeslot (or lets the system do it for them if they did so in ``Select Experiment") and checks the checkbox.
+\3 The user clicks the ``Confirm Appointment" button.
 \3 If there are no problems with the entered data, the system returns the user to the homepage and displays a message informing them of their successful registration.  The system will also send an email containing the experiment and timeslot information to the email account used to register.
 \2 Alternate Flows:
 \3 User attempts to ``Confirm Appointment" before entering all required information/checking the checkbox.
@@ -78,39 +133,9 @@
 \2 Special Requirements:
 \3 N/A
 
-\1 {\bf Name: Sign Up for Experiment}
-\2 Brief Description: Prospective participant chooses and signs up for an experiment.
-\2 Actors: Participant (henceforth ``user")
-\2 Basic Flow: (User can return to a previous step with the ``back" options on their browser.)  Each page has a login/logout button, which will follow the use case ``Authentication" if clicked.
-\3 Homepage: The system homepage has a button for login, and a table displaying currently running experiments.  Each experiment on the table can be clicked for further details.
-\3 Step 1: User clicks on an experiment button.  This will navigate them to that experiment's page.
-\4 Possible substep: The experiment listing table has options for sorting and filtering.  The user may click these buttons and enter filters without altering flow.
-\3 Experiment Page: Each experiment has a webpage with its name, description, and a list of timeslots.  Each timeslot can be clicked to move to the confimation screen.  There is also a button to join the experiment which will send the user to the confirmation screen without a timeslot selected.
-\3 Step 2: User clicks on a timeslot or the join button.  The system will navigate them to the confirmation page.
-\4 Possible substep: The timeslot listing has options for sorting and filtering.  The user may click these buttons and enter filters without altering flow.
-\3 Step 3: If the system attempts to move to the confirmation page but the user is not authenticated, it will follow the use case ``Authentication" first.  Once they have successfully logged in, they will be sent directly to the confirmation page.
-\3 Confirmation Page: This page can only be accessed while logged in.  It displays the experiment name, required qualifications, and a checkbox certifying that the user meets these requirements.  The timeslot list from the experiment page is also on this page, with the timeslot remaining selected if the user did so in step 2.  There is a large ``Confirm Appointment" button at the bottom of the page.
-\3 Step 4: The user checks the box, selects a timeslot if they have not already, and clicks the ``Confirm Appointment" button.
-\3 Final actions: The system will send the appointment data to the database and return the user to the homepage, with a popup confirming their successful registration.  The system will also send an email with the experiment and timeslot information to the account they used to register.
-\2 Alternate Flows:
-\3 User logs out while on the confirmation page.
-\4 As a user cannot return to this page while logged out (the normal behavior for the Authentication use case), they will be shunted back to the experiment page.  Information provided in step 2 is not guaranteed to remain selected.
-\3 Database reports an error when receiving appointment data.
-\4 Unlikely to occur outside of concurrent modification (two people signing up at the same time), the system will shunt the user back to the confirmation page with the updated available timeslots and provide a popup explaining why this happened.
-\2 Pre-conditions:
-\3 System is functional.
-\3 There is at least one experiment currently offered.
-\2 Post-conditions:
-\3 Database has added appointment to user and experiment data.
-\3 (Side effect) User is authenticated.
-\2 Special Requirements:
-\3 N/A
-
 \end{outline}
 \subsection{Experiment Management}
 \begin{outline}[enumerate]
-
-
 
 % What about breaks in between slots?
 \1 {\bf Name: Add Experiment}
