@@ -1,0 +1,1 @@
+pdflatex -interaction=nonstopmode $1.tex; makeindex $1.idx; makeglossaries $1; bibtex $1.aux; pdflatex -interaction=nonstopmode $1.tex; pdflatex -interaction=nonstopmode $1.tex
