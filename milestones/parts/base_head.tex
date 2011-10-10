@@ -14,6 +14,17 @@
     urlcolor=black
 }
 
+\usepackage{makeidx}
+\makeindex
+\usepackage[totoc=true]{idxlayout}
+
+\usepackage{glossaries}
+\makeglossaries
+% Changes from \section{<title>} to \subsection{<title>}
+\setglossarysection{section}
+
+\input{glossary_defs}
+
 \usepackage{pdfpages}
 \usepackage{outlines}
 \usepackage[parfill]{parskip} % to begin paragraphs with an empty line rather than an indent

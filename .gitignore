@@ -6,4 +6,11 @@
 *.blg
 *.dvi
 *.out
+*.glg
+*.glo
+*.gls
+*.idx
+*.ilg
+*.ind
+*.ist
 *~
