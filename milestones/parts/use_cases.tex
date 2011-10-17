@@ -15,14 +15,14 @@ Every page also possesses a button to return to the system homepage.  This will 
 \2 Basic Flow:
 \3 User clicks the ``login/logout/create account" button from any page.
 \3 User prompted for Email and Password via text boxes.
-\3 The system sends their login information to the database.
+\3 The system sends their login information to the database. [A2] [A3] [A4]
 \3 System displays a message confirming successful login.  The user is now logged in.
 \3 After 10 seconds or when the user clicks a link to do so immediately, the user is navigated out of the login use case as specified in General Behavior.
 \2 Alternate Flows:
-\3 User navigates elsewhere on the website, through their browser or the ``home" button.  Unless the page they attempt to visit requires authentication, this simply drops them out of the use case.
-\3 User entered an email that the database did not recognize.  Run use case ``Account Creation".
-\3 User entered an email recognized by the database but not the password associated with it.  Return to email/password entry, displaying the message ``Incorrect password, please retry."
-\3 System fails to connect to database.  Display the message ``Database unavailable; we are sorry for the inconvenience.  Please try again later."  Then return the user to the page they entered the use case from.
+\3 [A1] User navigates elsewhere on the website, through their browser or the ``home" button.  Unless the page they attempt to visit requires authentication, this simply drops them out of the use case.
+\3 [A2] User entered an email that the database did not recognize.  Run use case ``Account Creation".
+\3 [A3] User entered an email recognized by the database but not the password associated with it.  Return to email/password entry, displaying the message ``Incorrect password, please retry."
+\3 [A4] System fails to connect to database.  Display the message ``Database unavailable; we are sorry for the inconvenience.  Please try again later."  Then return the user to the page they entered the use case from.
 \2 Pre-conditions:
 \3 System is functional.
 \3 User is not logged in.
@@ -43,7 +43,7 @@ Every page also possesses a button to return to the system homepage.  This will 
 \3 System displays a message confirming successful logout.  The user is now logged out.
 \3 After 10 seconds or when the user clicks a link to do so immediately, the user is navigated out of the logout use case as specified in General Behavior.
 \2 Alternate Flows:
-\3 User entered this use case from a page not available while logged out (appointment confirmation or researcher interfaces).  The system will return them to the homepage unless otherwise specified.
+\3 [A1] User entered this use case from a page not available while logged out (appointment confirmation or researcher interfaces).  The system will return them to the homepage unless otherwise specified.
 \2 Pre-conditions:
 \3 System is functional.
 \3 User is logged in.
@@ -64,24 +64,28 @@ Every page also possesses a button to return to the system homepage.  This will 
 \3 User clicks the ``create account" button from the login page.
 \3 The system navigates the user to the account creation page.
 \3 User prompted for Email, Name, Phone, Password, and Confirm Password via text boxes.
-\3 User clicks ``Submit" button.
-\3 The system sends the entered information to the database.  If the database reports no errors, continue.
-\3 The system sends an email to the entered email address.  If this reports no errors, continue.
+\3 User clicks ``Submit" button. [A2] [A3] [A4]
+\3 The system sends the entered information to the database. [A5] [A6]
+\3 The system sends an email to the entered email address. [A7]
 \3 System displays a message confirming successful account creation.  The user is now logged in.
 \3 After 10 seconds or when the user clicks a link to do so immediately, the user is navigated out of the create account use case as specified in General Behavior.
 \2 Alternate Flows:
-\3 User navigates elsewhere on the website, through their browser or the ``home" button.  Unless the page they attempt to visit requires authentication, this simply drops them out of the use case.
-\3 User clicked ``Submit" before filling in all fields on the account creation page.  System does not leave the page, and displays the message ``All fields must be completed to continue."
-\3 User entered an email already present in the database on the account creation page.  System does not leave the page, and displays the message ``Email already registered."
-\3 User entered different text in the Password and Confirm Password fields on the account creation page.  System does not leave the page, and displays the message ``Password confirmation failed; please re-type it."
-\3 System fails to connect to database.  Display the message ``Database unavailable; we are sorry for the inconvenience.  Please try again later."  Then return the user to the page they entered the use case from.
+\3 [A1] User navigates elsewhere on the website, through their browser or the ``home" button.  Unless the page they attempt to visit requires authentication, this simply drops them out of the use case.
+\3 [A2] User clicked ``Submit" before filling in all fields on the account creation page.  System does not leave the page, and displays the message ``All fields must be completed to continue."
+\3 [A3] User entered a username, email, or password that does not meet requirements.  See "special requirements".  System does not leave the page, and displays the message ``Please check guidelines for account creation, one or more fields were not acceptable."
+\3 [A4] User entered different text in the Password and Confirm Password fields on the account creation page.  System does not leave the page, and displays the message ``Password confirmation failed; please re-type it."
+\3 [A5] System fails to connect to database.  Display the message ``Database unavailable; we are sorry for the inconvenience.  Please try again later."  Then return the user to the page they entered the use case from.
+\3 [A6] User entered an email already present in the database on the account creation page.  System does not leave the page, and displays the message ``Email already registered."
+\3 [A7] System fails to send an email to the entered address.  System does not leave the page, and displays the message ``Invalid email, please re-type."
 \2 Pre-conditions:
 \3 System is functional.
 \3 User is not logged in.
 \2 Post-conditions:
 \3 User is logged in with their new account, or cancelled account creation process.
 \2 Special Requirements:
-\3 N/A
+\3 Emails must be of the form <name>@<domain>.  They are checked for validity when the system attempts to send to them.
+\3 Names cannot include special characters other than . , '
+\3 Passwords must be at least six characters, and must have at least two of the following; letters, numbers, special characters.
 \2 Feature Mapping:
 \3 Levels of Authentication
 \3 Accounts
@@ -103,26 +107,29 @@ Every page also possesses a button to return to the system homepage.  This will 
 \3 User can sort or filter timeslot list.
 \3 User clicks ``join experiment" or a timeslot button.  This takes them to use case ``sign up for experiment".
 \2 Alternate Flows:
-\3 User decides to view a different experiment by navigating with their browser or clicking a button on any page.  They are returned to the homepage.
+\3 [A1] User decides to view a different experiment by navigating with their browser or clicking a button on any page.  They are returned to the homepage.
 \2 Pre-conditions:
 \3 System is functional.
 \3 There is at least one experiment currently offered.
 \2 Post-conditions:
 \3 User has clicked ``join experiment" or a timeslot button for some experiment.
+\2 Feature mapping:
+\3 Browse Experiments
+\3 Filter Experiments
 
 \1 {\bf Name: Sign up for Experiment}
 \2 Brief Description: Participant enters data and confirms appointment.
 \2 Actors: Participant (henceforth ``user")
 \2 Basic Flow:
 \3 If the user is not currently logged in, run use case ``login".  They must be logged in to continue.
-\3 Confirmation Page: This page is available only while logged in.  It displays experiment name, required qualifications, and a checkbox for the user to verify they meet those qualifications. There is a list of timeslots. There is a ``Confirm Appointment" button.
-\3 The user selects a timeslot (or lets the system do it for them if they did so in ``Select Experiment") and checks the checkbox.
-\3 The user clicks the ``Confirm Appointment" button.
+\3 Confirmation Page: This page is available only while logged in.  It displays experiment name, required qualifications, and a checkbox for the user to verify they meet those qualifications. There is a list of timeslots. There is a ``Confirm Appointment" button. [A2]
+\3 The user selects a timeslot (or lets the system do it for them if they did so in ``Select Experiment") and checks the checkbox. [A2]
+\3 The user clicks the ``Confirm Appointment" button. [A1] [A2]
 \3 If there are no problems with the entered data, the system returns the user to the homepage and displays a message informing them of their successful registration.  The system will also send an email containing the experiment and timeslot information to the email account used to register.
 \2 Alternate Flows:
-\3 User attempts to ``Confirm Appointment" before entering all required information/checking the checkbox.
+\3 [A1] User attempts to ``Confirm Appointment" before entering all required information/checking the checkbox.
 \4 The system will return them to the confirmation page and inform them of what still needs to be done.
-\3 User logs out while on the confirmation page.  The system will return them to the experiment page.
+\3 [A2] User logs out while on the confirmation page.  The system will return them to the experiment page.
 \2 Pre-conditions:
 \3 System is functional.
 \3 User has selected an experiment via the ``Select Experiment" use case.
@@ -132,6 +139,10 @@ Every page also possesses a button to return to the system homepage.  This will 
 \3 (Side effect) user is authenticated.
 \2 Special Requirements:
 \3 N/A
+\2 Feature Mapping:
+\3 Participant Schedule Experiment
+\3 Notify Participant when Creating Appointment
+\3 Prevent Scheduling Conflicts (Participant)
 
 \end{outline}
 \subsection{Experiment Management}
@@ -147,16 +158,19 @@ Every page also possesses a button to return to the system homepage.  This will 
 \3 User must enter the experiment information for name, description, qualifications, and schedule slots
 \3 User can then begin setting up the schedule times by choosing date, begin, and end time for each slot they want to run the experiment
 \3 User then must save the experiment by clicking the Save button
-\3 System will then save the experiment to persistent storage and provide the user with confirmation that the experiment was created successfully and redirect user to all experiment view
+\3 System will then save the experiment to persistent storage and provide the user with confirmation that the experiment was created successfully and redirect user to all experiment view [A2]
 \2 Alternate Flows:
-\3 User cancels out of creating an experiment
-\3 Saving an experiment fails
+\3 [A1] User cancels out of creating an experiment
+\3 [A2] Saving an experiment fails
 \2 Pre-conditions:
 \3 User is an Administrator and/or a Researcher and has authenticated
 \2 Post-conditions:
 \3 System will have recorded the experiment or the system will notify the user why the creation of the experiment failed
 \2 Special Requirements:
-\3 N/A
+\3 End times for each slot must be after begin times.
+\2 Feature mapping:
+\3 Add Experiment
+\3 Prevent Scheduling Conflicts (Administrator)
 
 \1 {\bf Name: Modify Experiment (user can cancel at any time and follow Alt Flow 1)}
 \2 Brief Description: Experiments can be modified by Administrators and Researchers to change all assets of the experiment
@@ -166,18 +180,22 @@ Every page also possesses a button to return to the system homepage.  This will 
 \3 User will click on desired field to modify [Alt Flow 3]
 \3 System will allow field that user chooses to be editable in line
 \3 User will then change field as desired and click away from the field or save when finished
-\3 System will update the database with the modified experiment information
+\3 System will update the database with the modified experiment information [A2] [A3]
 \2 Alternate Flows:
-\3 User cancels out of creating an experiment. System will return user to the page where user came from
-\3 Saving an experiment fails
-\3 User deletes an experiment. System will remove experiment from database after user confirmation and display a message to the user indicating this was successful
+\3 [A1] User cancels out of creating an experiment. System will return user to the page where user came from
+\3 [A2] Saving an experiment fails
+\3 [A3] User deletes an experiment. System will remove experiment from database after user confirmation and display a message to the user indicating this was successful
 \2 Pre-conditions:
 \3 User is an Administrator and/or a Researcher and has authenticated
 \3 User chose experiment through one of the experiment views
 \2 Post-conditions:
 \3 System will have recorded the modifications to the experiment or the system will notify the user why the modification of the experiment failed
 \2 Special Requirements:
-\3 N/A
+\3 End times for each slot must be after begin times.
+\2 Feature mapping:
+\3 Modify Experiment
+\3 Remove Experiments
+\3 Prevent Scheduling Conflicts (Administrator)
 
 \end{outline}
 \subsection{Reports}
@@ -187,9 +205,9 @@ Every page also possesses a button to return to the system homepage.  This will 
 \2 Brief description: Researcher logs in and views a list of all participants for a selected experiment.
 \2 Actors: Researcher
 \2 Basic flow
-\3 Researcher logs in
-\3 System displays table of researcher's experiments
-\3 Researcher selects experiment from table
+\3 (1) Researcher logs in
+\3 System displays table of researcher's experiments [A1]
+\3 (2) Researcher selects experiment from table
 \3 System displays list of all participants for selected experiment
         \begin{table}
             \begin{tabular}{|l|l|l|l|}
@@ -204,7 +222,7 @@ Every page also possesses a button to return to the system homepage.  This will 
             \end{tabular}
         \end{table}
 \2 Alternate flows
-\3 Researcher does not own any experiments
+\3 [A1] Researcher does not own any experiments
 \4 (2) displays an empty table
 \4 He cannot proceed past (2) until he creates an experiment or is added to another researcher's
 \3 Selected experiment has no participants
@@ -218,22 +236,24 @@ Every page also possesses a button to return to the system homepage.  This will 
 \3 Researcher knows who is signed up to participate in his selected experiment or there are no experiments/participants
 \2 Special Requirements:
 \3 N/A
+\2 Feature mapping:
+\3 Experiment Participants
 
 
 \1 {\bf Name: Cancel Experiment Appointment}
 \2 Brief description: Participant logs in and cancels an appointment.
 \2 Actors: Participant (User)
 \2 Basic flow
-\3 Participant logs in
-\3 System displays table of participant's appointments
-\3 Participant selects appointment from table
-\3 System displays details for selected appointment
-\3 Participant selects delete
-\3 System displays confirmation prompt
-\3 Participant selects confirm: appointment is deleted and system returns to (2) with an affirmation message
-\3 Participant selects cancel: system returns to (5)
+\3 (1) Participant logs in
+\3 (2) System displays table of participant's appointments [A1]
+\3 (3) Participant selects appointment from table
+\3 (4) System displays details for selected appointment
+\3 (5) Participant selects delete
+\3 (6) System displays confirmation prompt
+\3 (7) Participant selects confirm: appointment is deleted and system returns to (2) with an affirmation message
+\3 (8) Participant selects cancel: system returns to (4)
 \2 Alternate flows
-\3 Participant has no appointments
+\3 [A1] Participant has no appointments
 \4 (2) displays an empty table
 \4 He cannot proceed past (2) until he signs up for an experiment
 \2 Pre-conditions
@@ -245,6 +265,9 @@ Every page also possesses a button to return to the system homepage.  This will 
 \3 Researcher(s) owning said appointment's experiment are notified via email
 \2 Special Requirements:
 \3 N/A
+\2 Feature mapping:
+\3 Cancel Experiment Appointment
+\3 Notify Participant Appointment Cancellation Reminder
 
 
 \1 {\bf Name: Report Experiment Participant Lists}
@@ -252,19 +275,19 @@ Every page also possesses a button to return to the system homepage.  This will 
 \2 Actors: Researcher
 \2 Basic Flow:
 \3 The researcher will check what experiments to export to the CSV file from the list of experiments in the researcher side view
-\3 The researcher will click “Export to CSV”
-\3 The system will generate a CSV file from the selected experiment displaying the name of the experiment and the names of participants with their times
-\3 The system will then start the download of the file to the researcher's computer
+\3 The researcher will click “Export to CSV” [A1] 
+\3 The system will generate a CSV file from the selected experiment displaying the name of the experiment and the names of participants with their times [A2] [A3]
+\3 The system will then start the download of the file to the researcher's computer [A4] [A5]
 \3 When the system has completed 3 and 4, the system will display a message box “Export Complete!”
 \3 The researcher will click “OK” or the exit button on the message box
 \3 The system will return to the researcher side view.
 \2 Alternative Flow:
-\3 The researcher did not select any experiment.  An error window will appear.
-\3 The system encounters an error when pulling data from the database. An error window will appear
-\3 The system encounters any error when creating the CSV file. An error window will appear
-\3 The system cannot download the file to the researcher’s computer. An error window will appear
-\3 The researcher will deny the download of the CSV.  A message box will appear
-\3 The user exits the browser
+\3 [A1] The researcher did not select any experiment.  An error window will appear.
+\3 [A2] The system encounters an error when pulling data from the database. An error window will appear
+\3 [A3] The system encounters any error when creating the CSV file. An error window will appear
+\3 [A4] The system cannot download the file to the researcher’s computer. An error window will appear
+\3 [A5] The researcher will deny the download of the CSV.  A message box will appear
+\3 [A6] The user exits the browser
 \2 Preconditions:
 \3 The researcher must be logged in as a researcher
 \3 The system is in the researcher side view
@@ -277,16 +300,16 @@ Every page also possesses a button to return to the system homepage.  This will 
 \1 {\bf Name: Calendar/List of All Experiments}
 \2 Basic Description: The list will show the soonest to be conducted experiments (10) and will allow for a user to click and view more information on the experiment
 \2 Basic Flow:
-\3 The system loads the first 10 experiments
-\3 The user can scroll down the list
+\3 The system loads the first 10 experiments [A1]
+\3 The user can scroll down the list [A5]
 \3 The user selects an experiment
 \2 Alternative Flow:
-\3The system errors when loading the first 10 experiments from the database
-\3 The user goes to another website
-\3 The user attempts to log into the researcher page and fails
-\3 The user attempts to log into the researcher page and has success
-\3 The user clicks on the next 10 experiments and repeats basic flow 1 to 3
-\3 The user exits the browser
+\3 [A1] The system errors when loading the first 10 experiments from the database
+\3 [A2] The user goes to another website
+\3 [A3] The user attempts to log into the researcher page and fails
+\3 [A4] The user attempts to log into the researcher page and has success
+\3 [A5] The user clicks on the next 10 experiments and repeats basic flow 1 to 3
+\3 [A6] The user exits the browser
 \2 Precondition:
 \3 The user is on the web page
 \2 Postcondidtion:
