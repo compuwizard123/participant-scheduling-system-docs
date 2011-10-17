@@ -1,6 +1,6 @@
 \subsection{Performance}
 \begin{itemize}
-\item The average response time for the next screen to appear after the user has selected an option that will change the screen is thirty milliseconds and the maximum is sixty milliseconds.
-\item A minimum of one page load per second will be supported.
-\item Each individual session will support one concurrent user, while the overall system will support up to twenty users using the web application in parallel.
+\item The average response time for the next screen to appear after the user has selected an option that will change the screen will be thirty milliseconds and the maximum will be sixty milliseconds, not including network latency that cannot be controlled.
+\item A minimum of one page load per second will be supported, again not including network latency that cannot be controlled.
+\item Each individual session will support one concurrent user, while the overall system will support up to twenty users using the web application in parallel. The client specified the number of twenty. In the rare case that more than twenty users attempt to use the web application in parallel, everyone will be able to do so, but the ideal performance estimates will be invalidated.
 \end{itemize}
