@@ -1,6 +1,6 @@
 \section{Use Cases}
 
-\subsection{General Behavior}
+\subsection{General Behaviour}
 
 Every page on the website possesses a ``login/logout/create account" button.  If the user is logged in, follow use case ``Logout".  Otherwise, follow use case ``Login".  In either case, unless noted otherwise, upon completion of that use case, the system will return to the page the button was clicked from.  If that page had user-entered fields, they will be in the same state they were when the user clicked the button.
 
@@ -13,9 +13,9 @@ Every page also possesses a button to return to the system homepage.  This will 
 \2 Brief Description: User logs in.
 \2 Actors: User
 \2 Basic Flow:
-\3 User clicks the ``login/logout/create account" button from any page.
+\3 User clicks the {``}login/logout/create account" button from any page.
 \3 User prompted for Email and Password via text boxes.
-\3 The system sends their login information to the database.  If it matches, continue.
+\3 The system sends their login information to the database.
 \3 System displays a message confirming successful login.  The user is now logged in.
 \3 After 10 seconds or when the user clicks a link to do so immediately, the user is navigated out of the login use case as specified in General Behavior.
 \2 Alternate Flows:
@@ -39,7 +39,7 @@ Every page also possesses a button to return to the system homepage.  This will 
 \2 Brief Description: User logs out.
 \2 Actors: User
 \2 Basic Flow:
-\3 User clicks the ''login/logout/create account" button from any page.
+\3 User clicks the \"login/logout/create account" button from any page.
 \3 System displays a message confirming successful logout.  The user is now logged out.
 \3 After 10 seconds or when the user clicks a link to do so immediately, the user is navigated out of the logout use case as specified in General Behavior.
 \2 Alternate Flows:
