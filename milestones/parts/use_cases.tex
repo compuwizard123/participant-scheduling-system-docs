@@ -41,7 +41,7 @@ Every page also possesses a button to return to the system homepage.  This will 
 \2 Basic Flow:
 \3 User clicks the ``login/logout/create account" button from any page.
 \3 System displays a message confirming successful logout.  The user is now logged out.
-\3 After 10 seconds or when the user clicks a link to do so immediately, the user is navigated out of the logout use case as specified in General Behavior.
+\3 After 10 seconds or when the user clicks a link to do so immediately, the user is navigated out of the logout use case as specified in General Behaviour.
 \2 Alternate Flows:
 \3 [A1] User entered this use case from a page not available while logged out (appointment confirmation or researcher interfaces).  The system will return them to the homepage unless otherwise specified.
 \2 Pre-conditions:
@@ -68,11 +68,11 @@ Every page also possesses a button to return to the system homepage.  This will 
 \3 The system sends the entered information to the database. [A5] [A6]
 \3 The system sends an email to the entered email address. [A7]
 \3 System displays a message confirming successful account creation.  The user is now logged in.
-\3 After 10 seconds or when the user clicks a link to do so immediately, the user is navigated out of the create account use case as specified in General Behavior.
+\3 After 10 seconds or when the user clicks a link to do so immediately, the user is navigated out of the create account use case as specified in General Behaviour.
 \2 Alternate Flows:
 \3 [A1] User navigates elsewhere on the website, through their browser or the ``home" button.  Unless the page they attempt to visit requires authentication, this simply drops them out of the use case.
 \3 [A2] User clicked ``Submit" before filling in all fields on the account creation page.  System does not leave the page, and displays the message ``All fields must be completed to continue."
-\3 [A3] User entered a username, email, or password that does not meet requirements.  See "special requirements".  System does not leave the page, and displays the message ``Please check guidelines for account creation, one or more fields were not acceptable."
+\3 [A3] User entered a username, email, or password that does not meet requirements.  See ``special requirements".  System does not leave the page, and displays the message ``Please check guidelines for account creation, one or more fields were not acceptable."
 \3 [A4] User entered different text in the Password and Confirm Password fields on the account creation page.  System does not leave the page, and displays the message ``Password confirmation failed; please re-type it."
 \3 [A5] System fails to connect to database.  Display the message ``Database unavailable; we are sorry for the inconvenience.  Please try again later."  Then return the user to the page they entered the use case from.
 \3 [A6] User entered an email already present in the database on the account creation page.  System does not leave the page, and displays the message ``Email already registered."
@@ -83,7 +83,7 @@ Every page also possesses a button to return to the system homepage.  This will 
 \2 Post-conditions:
 \3 User is logged in with their new account, or cancelled account creation process.
 \2 Special Requirements:
-\3 Emails must be of the form <name>@<domain>.  They are checked for validity when the system attempts to send to them.
+\3 Emails must be of the form {\textless}name{\textgreater}@{\textless}domain{\textgreater}.  They are checked for validity when the system attempts to send to them.
 \3 Names cannot include special characters other than . , '
 \3 Passwords must be at least six characters, and must have at least two of the following; letters, numbers, special characters.
 \2 Feature Mapping:
@@ -122,12 +122,12 @@ Every page also possesses a button to return to the system homepage.  This will 
 \2 Actors: Participant (henceforth ``user")
 \2 Basic Flow:
 \3 If the user is not currently logged in, run use case ``login".  They must be logged in to continue.
-\3 Confirmation Page: This page is available only while logged in.  It displays experiment name, required qualifications, and a checkbox for the user to verify they meet those qualifications. There is a list of timeslots. There is a ``Confirm Appointment" button. [A2]
-\3 The user selects a timeslot (or lets the system do it for them if they did so in ``Select Experiment") and checks the checkbox. [A2]
+\3 Confirmation Page: This page is available only while logged in.  It displays experiment name, required qualifications, and a check box for the user to verify they meet those qualifications. There is a list of timeslots. There is a ``Confirm Appointment" button. [A2]
+\3 The user selects a timeslot (or lets the system do it for them if they did so in ``Select Experiment") and checks the check box. [A2]
 \3 The user clicks the ``Confirm Appointment" button. [A1] [A2]
 \3 If there are no problems with the entered data, the system returns the user to the homepage and displays a message informing them of their successful registration.  The system will also send an email containing the experiment and timeslot information to the email account used to register.
 \2 Alternate Flows:
-\3 [A1] User attempts to ``Confirm Appointment" before entering all required information/checking the checkbox.
+\3 [A1] User attempts to ``Confirm Appointment" before entering all required information/checking the check box.
 \4 The system will return them to the confirmation page and inform them of what still needs to be done.
 \3 [A2] User logs out while on the confirmation page.  The system will return them to the experiment page.
 \2 Pre-conditions:
@@ -152,7 +152,7 @@ Every page also possesses a button to return to the system homepage.  This will 
 \1 {\bf Name: Add Experiment}
 \2 Brief Description: Experiments can be created by Administrators and Researchers
 \2 Actors: Administrators and Researchers
-\2 Basic Flow: (user can cancel at any time and follow Alt Flow 1)
+\2 Basic Flow: (user can cancel at any time and follow A1)
 \3 User must click on Add New Experiment link from the Administration ``home" page
 \3 System will display a screen with text boxes to enter experiment name, description,  and qualifications, multiple date/time choosers for the schedule times, and a drop down list to specify the length of the schedule slots
 \3 User must enter the experiment information for name, description, qualifications, and schedule slots
@@ -172,12 +172,12 @@ Every page also possesses a button to return to the system homepage.  This will 
 \3 Add Experiment
 \3 Prevent Scheduling Conflicts (Administrator)
 
-\1 {\bf Name: Modify Experiment (user can cancel at any time and follow Alt Flow 1)}
+\1 {\bf Name: Modify Experiment}
 \2 Brief Description: Experiments can be modified by Administrators and Researchers to change all assets of the experiment
 \2 Actors: Administrators and Researchers
-\2 Basic Flow:
+\2 Basic Flow: (user can cancel at any time and follow A1)
 \3 System will display experiment fields (name, description, qualifications, schedule time, schedule slots, and participant list)
-\3 User will click on desired field to modify [Alt Flow 3]
+\3 User will click on desired field to modify [A3]
 \3 System will allow field that user chooses to be editable in line
 \3 User will then change field as desired and click away from the field or save when finished
 \3 System will update the database with the modified experiment information [A2] [A3]
@@ -204,7 +204,7 @@ Every page also possesses a button to return to the system homepage.  This will 
 \1 {\bf Name: List Experiment Participants}
 \2 Brief description: Researcher logs in and views a list of all participants for a selected experiment.
 \2 Actors: Researcher
-\2 Basic flow
+\2 Basic flow:
 \3 (1) Researcher logs in
 \3 System displays table of researcher's experiments [A1]
 \3 (2) Researcher selects experiment from table
@@ -221,7 +221,7 @@ Every page also possesses a button to return to the system homepage.  This will 
                 \hline
             \end{tabular}
         \end{table}
-\2 Alternate flows
+\2 Alternate flows:
 \3 [A1] Researcher does not own any experiments
 \4 (2) displays an empty table
 \4 He cannot proceed past (2) until he creates an experiment or is added to another researcher's
