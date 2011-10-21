@@ -1,5 +1,153 @@
 \begin{landscape}
 \section{Test Cases}
-\input{parts/jawaidss_test_cases}
-\input{parts/chris_test_cases}
+\subsection{Experiments}
+\subsubsection{List Experiments}
+\begin{table}[!h]
+    \begin{tabular}{|p{.6in}|p{1in}|p{2.5in}|p{2in}|p{2.5in}|}
+        \hline
+        Test Case & Scenario & Description & Precondition & Expected Results \\ \hline
+        1 & Calendar/List of All Experiments & The users has selected the website and the website is loading & The website has responded and the browser has loaded the screen & The website loads the first 10 experiments \\ \hline
+        2 & Calendar/List of All Experiments & Basic Flow: The user scrolls down the list & The website has loaded the first 10 experiments & The user can click for the next 10 experiments \\ \hline
+        3 & Calendar/List of All Experiments & Basic Flow: The user selects an experiment & The system has loaded 10 experiments & The system is showing an experiment \\ \hline
+        4 & Calendar/List of All Experiments & Alternate Flow: The user attempts to log into the researcher page and fails & The user does not enter the correct information or the user is not  a researcher & The system returns to the same screen with fields cleared \\ \hline
+        5 & Calendar/List of All Experiments & Alternate Flow: The user attempts to log into the researcher page and has success & The user is a researcher and knows their log in information & The system goes to the researchers main page \\ \hline
+    \end{tabular}
+\end{table}
+
+\subsubsection{List Experiment Participants}
+\begin{outline}[enumerate]
+\1 [] Conditions:
+\2 [A] Researcher does not own any experiments
+\2 [B] Selected experiment has no participants
+\end{outline}
+\begin{table}[!h]
+    \begin{tabular}{|l|l|p{3in}|l|l|p{3in}|}
+        \hline
+        Test Case & Scenario & Description & Cond A & Cond B & Expected Result \\ \hline
+        1 & 1 & Basic flow & I & I & System displays list of all participants for selected experiment \\ \hline
+        2 & 2 & Alternate flow: Researcher does not own any experiments & V & N/A & System displays an empty table of experiments \\ \hline
+        3 & 3 & Alternate flow: Selected experiment has no participants & N/A & V & System displays an empty table of participants \\ \hline
+    \end{tabular}
+\end{table}
+
+\subsubsection{Cancel Experiment Appointment}
+\begin{outline}[enumerate]
+\1 [] Conditions:
+\2 [A] Participant selects confirm
+\2 [B] Participant selects cancel
+\2 [C] Participant has no appointments
+\end{outline}
+\begin{table}[!h]
+    \begin{tabular}{|l|l|p{2.75in}|l|l|l|p{2.75in}|}
+        \hline
+        Test Case & Scenario & Description & Cond A & Cond B & Cond C & Expected Result \\ \hline
+        1 & 1 & Basic flow: Participant selects confirm & V & I & I & Appointment is deleted and system returns with an affirmation message \\ \hline
+        2 & 1 & Basic flow: Participant selects cancel & I & V & I & System returns \\ \hline
+        3 & 2 & Alternate flow: Participant has no appointments & N/A & N/A & V & System displays an empty table of appointments \\ \hline
+    \end{tabular}
+\end{table}
+
+\clearpage
+\subsection{Authentication}
+\subsubsection{Login}
+\begin{outline}[enumerate]
+\1 [] Conditions:
+\2 [A] Email entered and in database
+\2 [B] Password entered and matches email in database
+\end{outline}
+\begin{table}[!h]
+    \begin{tabular}{|l|p{1in}|p{2.25in}|l|l|p{2.25in}|}
+        \hline
+        Test Case & Scenario & Description & Cond A & Cond B & Expected Result \\ \hline
+        1 & Any page & Basic flow: User clicks ``login/create account" link from any page. & N/A & N/A & System navigates user to login page. \\ \hline
+        2 & Login page & Alternate flow: User clicks ``submit" button. & I & N/A & System navigates user to create account page (see test cases for Account Creation). \\ \hline
+        2 & Login page & Alternate flow: User clicks ``submit" button. & V & I & System displays message informing user their password is incorrect. \\ \hline
+        3 & Login page & Basic flow: User clicks ``submit" button. & V & V & System displays message confirming successful login. \\ \hline
+        4 & Success message & Basic flow: User clicks ``return immediately" link. & N/A & N/A & System takes down success message and navigates back to initial page. \\ \hline
+        5 & Success message & Alternate flow: 10 seconds pass after message displayed. & N/A & N/A & System takes down success message and navigates back to initial page. \\ \hline
+    \end{tabular}
+\end{table}
+
+\subsubsection{Logout}
+\begin{table}[!h]
+    \begin{tabular}{|l|p{1in}|p{2.25in}|p{2.25in}|}
+        \hline
+        Test Case & Scenario & Description & Expected Result \\ \hline
+        1 & Any page & Basic flow: User clicks ``logout" link from any page. & System displays message confirming successful logout. \\ \hline
+        2 & Logout message & Basic flow: User clicks ``return immediately" link. & System takes down logout message. \\ \hline
+        3 & Logout message & Alternate flow: 10 seconds pass after clicking ``logout". & System takes down logout message. \\ \hline
+    \end{tabular}
+\end{table}
+
+\subsubsection{Login}
+\begin{outline}[enumerate]
+\1 [] Conditions:
+\2 [A] Email entered and is not in database
+\2 [B] Password entered and follows guidelines
+\2 [C] Confirm password entered and matches password
+\2 [D] User name entered and follows guidelines
+\end{outline}
+\begin{table}[!h]
+    \begin{tabular}{|l|p{1in}|p{2.25in}|l|l|l|l|p{2.25in}|}
+        \hline
+        Test Case & Scenario & Description & Cond A & Cond B & Cond C & Cond D & Expected Result \\ \hline
+        1 & Any page & Basic flow: User clicks ``login/create account" link from any page. & N/A & N/A & N/A & N/A & System navigates user to login page. \\ \hline
+        2 & Login page & Basic flow: User clicks ``create account" button. & N/A & N/A & N/A & N/A & System navigates user to create account page. \\ \hline
+        3 & Login page & Alternate flow: User clicks ``submit" button. & V & N/A & N/A & N/A & System navigates user to create account page. \\ \hline
+        4 & Create account page & Alternate flow: User clicks ``submit" button. & I & N/A & N/A & N/A & System displays message informing user that email is already in use. \\ \hline
+        5 & Create account page & Alternate flow: User clicks ``submit" button. & V & I & N/A & N/A & System displays message informing user that password does not meet guidelines. \\ \hline
+        6 & Create account page & Alternate flow: User clicks ``submit" button. & V & V & I & N/A & System displays message informing user that password and confirmation do not match. \\ \hline
+        7 & Create account page & Alternate flow: User clicks ``submit" button. & V & V & V & I & System displays message informing user that name does not meet guidelines. \\ \hline
+        8 & Create account page & Basic flow: User clicks ``submit" button. & V & V & V & V & System displays message confirming successful account creation. \\ \hline
+        9 & Success message & Basic flow: User clicks ``return immediately" link. & N/A & N/A & N/A & N/A & System takes down success message and navigates back to initial page. \\ \hline
+        10 & Success message & Alternate flow: 10 seconds pass after message displayed. & N/A & N/A & N/A & N/A & System takes down success message and navigates back to initial page. \\ \hline
+    \end{tabular}
+\end{table}
+
+\subsection{Appointments}
+\subsubsection{Select Experiment}
+\begin{table}[!h]
+    \begin{tabular}{|l|l|p{2.5in}|p{2.5in}|}
+        \hline
+        Test Case & Scenario & Description & Expected Result \\ \hline
+        1 & Home page & Basic flow: User clicks an experiment from the table. & System navigates user to that experiment's page. \\ \hline
+        2 & Experiment page & Basic flow: User clicks ``join experiment". & System navigates to appointment page (see Sign Up for Experiment). \\ \hline
+        3 & Experiment page & Alternate flow: User selects a timeslot. & System navigates to appointment page (see Sign Up for Experiment) with timeslot information. \\ \hline
+    \end{tabular}
+\end{table}
+
+\subsubsection{Sign up for Experiment}
+\begin{outline}[enumerate]
+\1 [] Conditions:
+\2 [A] User logged in
+\2 [B] User has clicked check box and selected valid timeslot
+\end{outline}
+\begin{table}[!h]
+    \begin{tabular}{|l|p{1in}|p{2.5in}|l|l|p{2.5in}|}
+        \hline
+        Test Case & Scenario & Description & Cond A & Cond B & Expected Result \\ \hline
+        1 & Appointment page & Alternate flow: User is on appointment page. & I & N/A & System navigates user to login page. \\ \hline
+        2 & Appointment page & Basic flow: User is on appointment page. & V & N/A & Selected timeslot from experiment page already selected. \\ \hline
+        3 & Appointment page & Alternate flow: User clicks ``confirm appointment" button. & V & I & System informs user they must complete the form. \\ \hline
+        4 & Appointment page & Basic flow: User clicks ``confirm appointment" button. & V & V & System displays message confirming successful appointment. \\ \hline
+        5 & Success message & Basic flow: User clicks ``return immediately" link. & N/A & N/A & System takes down success message and navigates back to home page. \\ \hline
+        6 & Success message & Alternate flow: 10 seconds pass after message displayed. & N/A & N/A & System takes down success message and navigates back to home page. \\ \hline
+    \end{tabular}
+\end{table}
+
+\clearpage
+\subsection{Reports}
+\subsubsection{Export Participants}
+\begin{table}[!h]
+    \begin{tabular}{|p{.6in}|p{1in}|p{2.5in}|p{2in}|p{2.5in}|}
+        \hline
+        Test Case & Scenario & Description & Precondition & Expected Results \\ \hline
+        1 & Export Experiment Participant List & Basic Flow: The researcher clicks Export to CSV & There are no experiments checked & Error box asking the user to select an experiment \\ \hline
+        2 & Export Experiment Participant List & Basic Flow: The researcher clicks Export to CSV & There are experiments checked & The system generates a CSV file \\ \hline
+        3 & Export Experiment Participant List & Basic Flow: The system starts the download of the file & The CSV creation succeeded & The file downloads and a message box is displayed ``Export Complete" \\ \hline
+        4 & Export Experiment Participant List & Alternate Flow: An Error occurs when pulling from the database & The researcher has selected experiments and Clicked Export CSV & The system displays an error message \\ \hline
+        5 & Export Experiment Participant List & Alternate Flow: The system cannot download the file to the researchers computer & The CSV creation succeeded and the download has started & The system displays an error message \\ \hline
+        6 & Export Experiment Participant List & Alternate Flow: The researcher denies the download of the CSV & The CSV creation succeeded and the download has started & The system displays a message box \\ \hline
+    \end{tabular}
+\end{table}
 \end{landscape}
