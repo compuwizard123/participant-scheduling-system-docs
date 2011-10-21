@@ -1,9 +1,14 @@
 \subsection{Authentication}
 \subsubsection{Login}
+\begin{outline}[enumerate]
+\1 [] Conditions:
+\2 [A] Email entered and in database
+\2 [B] Password entered and matches email in database
+\end{outline}
 \begin{table}[!h]
-    \begin{tabular}{|l|l|l|l|l|l|}
+    \begin{tabular}{|p{.6in}|p{1in}|p{2.25in}|p{1in}|p{1in}|p{2.25in}|}
         \hline
-        Test Case & Scenario & Description & Condition - Email entered and in database & Condition - Password entered and matches email in database & Expected Result \\
+        Test Case & Scenario & Description & Condition A & Condition B & Expected Result \\
         \hline
         1 & Any page & Basic flow: User clicks ``login/create account" link from any page. & N/A & N/A & System navigates user to login page. \\
         \hline
@@ -36,10 +41,17 @@
 \end{table}
 
 \subsubsection{Login}
+\begin{outline}[enumerate]
+\1 [] Conditions:
+\2 [A] Email entered and is not in database
+\2 [B] Password entered and follows guidelines
+\2 [C] Confirm password entered and matches password
+\2 [D] User name entered and follows guidelines
+\end{outline}
 \begin{table}[!h]
     \begin{tabular}{|l|l|l|l|l|l|l|l|}
         \hline
-        Test Case & Scenario & Description & Condition - Email entered and is not in database & Condition - Password entered and follows guidelines & Condition - Confirm Password entered and matches Password & Condition - Name entered and follows guidelines & Expected Result \\
+        Test Case & Scenario & Description & Condition A & Condition B & Condition C & Condition D & Expected Result \\
         \hline
         1 & Any page & Basic flow: User clicks ``login/create account" link from any page. & N/A & N/A & N/A & N/A   & System navigates user to login page. \\
         \hline
@@ -81,10 +93,15 @@
 \end{table}
 
 \subsubsection{Sign up for Experiment}
+\begin{outline}[enumerate]
+\1 [] Conditions:
+\2 [A] User logged in
+\2 [B] User has clicked check box and selected valid timeslot
+\end{outline}
 \begin{table}[!h]
     \begin{tabular}{|l|l|l|l|l|l|}
         \hline
-        Test Case & Scenario & Description & Condition - User logged in & Condition - User has clicked check box and selected valid timeslot & Expected Result \\
+        Test Case & Scenario & Description & Condition A & Condition B & Expected Result \\
         \hline
         1 & Appointment page & Alternate flow: User is on appointment page. & I & N/A & System navigates user to login page. \\
         \hline
