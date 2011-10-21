@@ -5,11 +5,11 @@
         \hline
         Test Case   & Scenario        & Description                           & Condition - Email entered and in database & Condition - Password entered and matches email in database & Expected Result \\ \hline
         1        & Any page               & Basic flow: User clicks "login/create account" link from any page.    & N/A & N/A   & System navigates user to login page.      \\ \hline
-        2        & Login page             & Basic flow: User clicks "submit" button.   & I & N/A & System navigates user to create account page (see test cases for Account Creation).       \\ \hline
-        2        & Login page             & Basic flow: User clicks "submit" button.   & V & I & System displays message informing user their password is incorrect.       \\ \hline
+        2        & Login page             & Alternate flow: User clicks "submit" button.   & I & N/A & System navigates user to create account page (see test cases for Account Creation).       \\ \hline
+        2        & Login page             & Alternate flow: User clicks "submit" button.   & V & I & System displays message informing user their password is incorrect.       \\ \hline
         3        & Login page             & Basic flow: User clicks "submit" button.   & V & V & System displays message confirming successful login.         \\ \hline
         4        & Success message  & Basic flow: User clicks "return immediately" link.  & N/A & N/A  & System takes down success message and navigates back to initial page.       \\ \hline
-        5        & Success message  & Basic flow: User waits for 10 seconds after message displayed.  & N/A & N/A  & System takes down success message and navigates back to initial page.       \\ \hline
+        5        & Success message  & Alternate flow: 10 seconds pass after message displayed.  & N/A & N/A  & System takes down success message and navigates back to initial page.       \\ \hline
     \end{tabular}
 \end{table}
 
@@ -20,24 +20,51 @@
         Test Case   & Scenario        & Description                           & Expected Result \\ \hline
         1        & Any page                             & Basic flow: User clicks "logout" link from any page.    & System displays message confirming successful logout.      \\ \hline
         2        & Logout message                  & Basic flow: User clicks "return immediately" link.    & System takes down logout message.         \\ \hline
-        3        & Logout message                  & Basic flow: User waits for 10 seconds after clicking "logout".   & System takes down logout message.       \\ \hline
+        3        & Logout message                  & Alternate flow: 10 seconds pass after clicking "logout".   & System takes down logout message.       \\ \hline
     \end{tabular}
 \end{table}
 
 \subsubsection{Login}
 \begin{table}[!h]
-    \begin{tabular}{|l|l|l|l|l|}
+    \begin{tabular}{|l|l|l|l|l|l|l|}
         \hline
         Test Case   & Scenario            & Description                           & Condition - Email entered and is not in database & Condition - Password entered and follows guidelines & Condition - Confirm Password entered and matches Password & Condition - Name entered and follows guidelines & Expected Result \\ \hline
         1        & Any page                   & Basic flow: User clicks "login/create account" link from any page.    & N/A & N/A & N/A & N/A   & System navigates user to login page.      \\ \hline
         2        & Login page                 & Basic flow: User clicks "create account" button.   & N/A & N/A & N/A & N/A & System navigates user to create account page.       \\ \hline
-        3        & Login page                 & Basic flow: User clicks "submit" button.   & V & N/A & N/A & N/A & System navigates user to create account page.       \\ \hline
-        4        & Create account page & Basic flow: User clicks "submit" button.   & I & N/A & N/A & N/A & System displays message informing user that email is already in use.       \\ \hline
-        5        & Create account page & Basic flow: User clicks "submit" button.   & V & I & N/A & N/A & System displays message informing user that password does not meet guidelines.       \\ \hline
-        6        & Create account page & Basic flow: User clicks "submit" button.   & V & V & I & N/A & System displays message informing user that password and confirmation do not match.       \\ \hline
-        7        & Create account page & Basic flow: User clicks "submit" button.   & V & V & V & I & System displays message informing user that name does not meet guidelines.       \\ \hline
+        3        & Login page                 & Alternate flow: User clicks "submit" button.   & V & N/A & N/A & N/A & System navigates user to create account page.       \\ \hline
+        4        & Create account page & Alternate flow: User clicks "submit" button.   & I & N/A & N/A & N/A & System displays message informing user that email is already in use.       \\ \hline
+        5        & Create account page & Alternate flow: User clicks "submit" button.   & V & I & N/A & N/A & System displays message informing user that password does not meet guidelines.       \\ \hline
+        6        & Create account page & Alternate flow: User clicks "submit" button.   & V & V & I & N/A & System displays message informing user that password and confirmation do not match.       \\ \hline
+        7        & Create account page & Alternate flow: User clicks "submit" button.   & V & V & V & I & System displays message informing user that name does not meet guidelines.       \\ \hline
         8        & Create account page & Basic flow: User clicks "submit" button.   & V & V & V & V & System displays message confirming successful account creation.       \\ \hline
         9        & Success message       & Basic flow: User clicks "return immediately" link.  & N/A & N/A & N/A & N/A & System takes down success message and navigates back to initial page.       \\ \hline
-        10      & Success message       & Basic flow: User waits for 10 seconds after message displayed.  & N/A & N/A & N/A & N/A & System takes down success message and navigates back to initial page.       \\ \hline
+        10      & Success message       & Alternate flow: 10 seconds pass after message displayed.  & N/A & N/A & N/A & N/A & System takes down success message and navigates back to initial page.       \\ \hline
+    \end{tabular}
+\end{table}
+
+
+\subsection{Appointments}
+\subsubsection{Select Experiment}
+\begin{table}[!h]
+    \begin{tabular}{|l|l|l|l|}
+        \hline
+        Test Case   & Scenario        & Description                             & Expected Result \\ \hline
+        1        & Home page               & Basic flow: User clicks an experiment from the table.  & System navigates user to that experiment's page.      \\ \hline
+        2        & Experiment page      & Basic flow: User clicks "join experiment".    & System navigates to appointment page (see Sign Up for Experiment).      \\ \hline
+        3        & Experiment page      & Alternate flow: User selects a timeslot.    & System navigates to appointment page (see Sign Up for Experiment) with timeslot information.      \\ \hline
+    \end{tabular}
+\end{table}
+
+\subsubsection{Sign up for Experiment}
+\begin{table}[!h]
+    \begin{tabular}{|l|l|l|l|l|}
+        \hline
+        Test Case   & Scenario        & Description                             & Condition - User logged in & Condition - User has clicked checkbox and selected valid timeslot & Expected Result \\ \hline
+        1        & Appointment page & Alternate flow: User is on appointment page.  & I & N/A & System navigates user to login page.      \\ \hline
+        2        & Appointment page & Basic flow: User is on appointment page.  & V & N/A & Selected timeslot from experiment page already selected.      \\ \hline
+        3        & Appointment page & Alternate flow: User clicks "confirm appointment" button.  & V & I & System informs user they must complete the form.      \\ \hline
+        4        & Appointment page & Basic flow: User clicks "confirm appointment" button.  & V & V & System displays message confirming successful appointment.      \\ \hline
+        5        & Success message   & Basic flow: User clicks "return immediately" link.  & N/A & N/A & System takes down success message and navigates back to home page.       \\ \hline
+        6        & Success message   & Alternate flow: 10 seconds pass after message displayed.  & N/A & N/A & System takes down success message and navigates back to home page.       \\ \hline
     \end{tabular}
 \end{table}
