@@ -1,14 +1,11 @@
 \section{Use Cases}
-
 \subsection{General Behaviour}
-
 Every page on the website possesses a ``login/logout/create account" button.  If the user is logged in, follow use case ``Logout".  Otherwise, follow use case ``Login".  In either case, unless noted otherwise, upon completion of that use case, the system will return to the page the button was clicked from.  If that page had user-entered fields, they will be in the same state they were when the user clicked the button.
 
 Every page also possesses a button to return to the system homepage.  This will exit any use case they are currently following and discard any temporarily stored information related to that use case, such as entered fields or selected options.
 
 \subsection{Authentication Use Cases}
 \begin{outline}[enumerate]
-
 \1 {\bf Name: Login}
 \2 Brief Description: User logs in.
 \2 Actors: User
@@ -72,7 +69,7 @@ Every page also possesses a button to return to the system homepage.  This will 
 \2 Alternate Flows:
 \3 [A1] User navigates elsewhere on the website, through their browser or the ``home" button.  Unless the page they attempt to visit requires authentication, this simply drops them out of the use case.
 \3 [A2] User clicked ``Submit" before filling in all fields on the account creation page.  System does not leave the page, and displays the message ``All fields must be completed to continue."
-\3 [A3] User entered a username, email, or password that does not meet requirements.  See ``special requirements".  System does not leave the page, and displays the message ``Please check guidelines for account creation, one or more fields were not acceptable."
+\3 [A3] User entered a user name, email, or password that does not meet requirements.  See ``special requirements".  System does not leave the page, and displays the message ``Please check guidelines for account creation, one or more fields were not acceptable."
 \3 [A4] User entered different text in the Password and Confirm Password fields on the account creation page.  System does not leave the page, and displays the message ``Password confirmation failed; please re-type it."
 \3 [A5] System fails to connect to database.  Display the message ``Database unavailable; we are sorry for the inconvenience.  Please try again later."  Then return the user to the page they entered the use case from.
 \3 [A6] User entered an email already present in the database on the account creation page.  System does not leave the page, and displays the message ``Email already registered."
@@ -89,13 +86,10 @@ Every page also possesses a button to return to the system homepage.  This will 
 \2 Feature Mapping:
 \3 Levels of Authentication
 \3 Accounts
-
 \end{outline}
 
 \subsection{Appointments}
 \begin{outline}[enumerate]
-
-
 \1 {\bf Name: Select Experiment}
 \2 Brief Description: Participant views and selects experiment to join
 \2 Actors: Participant (henceforth ``user")
@@ -143,11 +137,10 @@ Every page also possesses a button to return to the system homepage.  This will 
 \3 Participant Schedule Experiment
 \3 Notify Participant when Creating Appointment
 \3 Prevent Scheduling Conflicts (Participant)
-
 \end{outline}
+
 \subsection{Experiment Management}
 \begin{outline}[enumerate]
-
 % What about breaks in between slots?
 \1 {\bf Name: Add Experiment}
 \2 Brief Description: Experiments can be created by Administrators and Researchers
@@ -239,7 +232,6 @@ Every page also possesses a button to return to the system homepage.  This will 
 \2 Feature mapping:
 \3 Experiment Participants
 
-
 \1 {\bf Name: Cancel Experiment Appointment}
 \2 Brief description: Participant logs in and cancels an appointment.
 \2 Actors: Participant (User)
@@ -269,23 +261,22 @@ Every page also possesses a button to return to the system homepage.  This will 
 \3 Cancel Experiment Appointment
 \3 Notify Participant Appointment Cancellation Reminder
 
-
 \1 {\bf Name: Report Experiment Participant Lists}
 \2 Brief Description:  When the user is a researcher, the user will be able to export a CSV file, filed with the Experiment name and participant and times.
 \2 Actors: Researcher
 \2 Basic Flow:
 \3 The researcher will check what experiments to export to the CSV file from the list of experiments in the researcher side view
-\3 The researcher will click “Export to CSV” [A1] 
+\3 The researcher will click ``Export to CSV” [A1] 
 \3 The system will generate a CSV file from the selected experiment displaying the name of the experiment and the names of participants with their times [A2] [A3]
 \3 The system will then start the download of the file to the researcher's computer [A4] [A5]
 \3 When the system has completed 3 and 4, the system will display a message box “Export Complete!”
-\3 The researcher will click “OK” or the exit button on the message box
+\3 The researcher will click ``OK” or the exit button on the message box
 \3 The system will return to the researcher side view.
 \2 Alternative Flow:
 \3 [A1] The researcher did not select any experiment.  An error window will appear.
 \3 [A2] The system encounters an error when pulling data from the database. An error window will appear
 \3 [A3] The system encounters any error when creating the CSV file. An error window will appear
-\3 [A4] The system cannot download the file to the researcher’s computer. An error window will appear
+\3 [A4] The system cannot download the file to the researcher's computer. An error window will appear
 \3 [A5] The researcher will deny the download of the CSV.  A message box will appear
 \3 [A6] The user exits the browser
 \2 Preconditions:
@@ -310,15 +301,12 @@ Every page also possesses a button to return to the system homepage.  This will 
 \3 [A4] The user attempts to log into the researcher page and has success
 \3 [A5] The user clicks on the next 10 experiments and repeats basic flow 1 to 3
 \3 [A6] The user exits the browser
-\2 Precondition:
+\2 Preconditions:
 \3 The user is on the web page
-\2 Postcondidtion:
+\2 Postconditions:
 \3 The system is showing an experiment or the browser is on a new page
 \2 Feature mapping:
 \3 All calendar Experiments
 \3 Browse Experiments
 \3 Persistent Experiment Storage
-
-
-
 \end{outline}
