@@ -48,6 +48,41 @@
 \end{table}
 
 \clearpage
+\subsection{Experiment Management}
+\subsubsection{Add Experiment}
+\begin{outline}[enumerate]
+\1 [] Conditions:
+\2 [A] Experiment information (includes name, description, qualifications, date/time schedule, and slot length) - Must check each combination
+\end{outline}
+\begin{table}[!h]
+    \begin{tabular}{|l|l|p{3in}|l|p{3.25in}|}
+        \hline
+        Test Case & Scenario & Description & Cond A & Expected Result \\ \hline
+        1 & 1 & Basic flow: Administrator enters experiment information & V & Experiment is created and user is notified that creation of experiment was successful \\ \hline
+        2 & 2 & Basic flow: Administrator enters experiment information & I & Experiment is not created and user is notified of invalid field entry and the corresponding field \\ \hline
+        3 & 3 & Alternate flow: Administrator tries to save experiment & N/A & System notifies user that the save failed and returns user to Add Experiment page with pre-filled values \\ \hline
+        4 & 4 & Alternate flow: Administrator clicks cancel & N/A & System returns user to page they came from \\ \hline
+    \end{tabular}
+\end{table}
+
+\subsubsection{Modify Experiment}
+\begin{outline}[enumerate]
+\1 [] Conditions:
+\2 [A] Experiment information (includes name, description, qualifications, date/time schedule, and slot length) - Must check each combination
+\end{outline}
+\begin{table}[!h]
+    \begin{tabular}{|l|l|p{3in}|l|p{3.25in}|}
+        \hline
+        Test Case & Scenario & Description & Cond A & Expected Result \\ \hline
+        1 & 1 & Basic flow: Administrator enters experiment information & V & Experiment is created and user is notified that creation of experiment was successful \\ \hline
+        2 & 2 & Basic flow: Administrator enters experiment information & I & Experiment is not created and user is notified of invalid field entry and the corresponding field \\ \hline
+        3 & 3 & Alternate flow: Administrator tries to save experiment & N/A & System notifies user that the save failed and returns user to Add Experiment page with pre-filled values \\ \hline
+        4 & 4 & Alternate flow: Administrator clicks cancel & N/A & System returns user to page they came from \\ \hline
+        5 & 5 & Alternate flow: Administrator deletes the experiment & N/A & System notified the user that the experiment has been deleted and returns user to experiment management page \\ \hline
+    \end{tabular}
+\end{table}
+
+\clearpage
 \subsection{Authentication}
 \subsubsection{Login}
 \begin{outline}[enumerate]
