@@ -9,8 +9,6 @@
         1 & Calendar/List of All Experiments & The users has selected the website and the website is loading & The website has responded and the browser has loaded the screen & The website loads the first 10 experiments \\ \hline
         2 & Calendar/List of All Experiments & Basic Flow: The user scrolls down the list & The website has loaded the first 10 experiments & The user can click for the next 10 experiments \\ \hline
         3 & Calendar/List of All Experiments & Basic Flow: The user selects an experiment & The system has loaded 10 experiments & The system is showing an experiment \\ \hline
-        4 & Calendar/List of All Experiments & Alternate Flow: The user attempts to log into the researcher page and fails & The user does not enter the correct information or the user is not  a researcher & The system returns to the same screen with fields cleared \\ \hline
-        5 & Calendar/List of All Experiments & Alternate Flow: The user attempts to log into the researcher page and has success & The user is a researcher and knows their log in information & The system goes to the researchers main page \\ \hline
     \end{tabular}
 \end{table}
 
@@ -42,7 +40,7 @@
         \hline
         Test Case & Scenario & Description & Cond A & Cond B & Cond C & Expected Result \\ \hline
         1 & 1 & Basic flow: Participant selects confirm & V & I & I & Appointment is deleted and system returns with an affirmation message \\ \hline
-        2 & 1 & Basic flow: Participant selects cancel & I & V & I & System returns \\ \hline
+        2 & 1 & Basic flow: Participant selects cancel & I & V & I & System returns user to page they came from \\ \hline
         3 & 2 & Alternate flow: Participant has no appointments & N/A & N/A & V & System displays an empty table of appointments \\ \hline
     \end{tabular}
 \end{table}
@@ -74,8 +72,8 @@
     \begin{tabular}{|l|l|p{3in}|l|p{3.25in}|}
         \hline
         Test Case & Scenario & Description & Cond A & Expected Result \\ \hline
-        1 & 1 & Basic flow: Administrator enters experiment information & V & Experiment is created and user is notified that creation of experiment was successful \\ \hline
-        2 & 2 & Basic flow: Administrator enters experiment information & I & Experiment is not created and user is notified of invalid field entry and the corresponding field \\ \hline
+        1 & 1 & Basic flow: Administrator enters experiment information & V & Experiment information is updated and user is notified that modification of the experiment was successful \\ \hline
+        2 & 2 & Basic flow: Administrator enters experiment information & I & Experiment information is not updated and user is notified of invalid field entry and the corresponding field \\ \hline
         3 & 3 & Alternate flow: Administrator tries to save experiment & N/A & System notifies user that the save failed and returns user to Add Experiment page with pre-filled values \\ \hline
         4 & 4 & Alternate flow: Administrator clicks cancel & N/A & System returns user to page they came from \\ \hline
         5 & 5 & Alternate flow: Administrator deletes the experiment & N/A & System notified the user that the experiment has been deleted and returns user to experiment management page \\ \hline
