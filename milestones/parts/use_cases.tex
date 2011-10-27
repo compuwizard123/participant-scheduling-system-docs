@@ -228,10 +228,10 @@ Every page also possesses a button to return to the system homepage.  This will 
 \3 (2) System displays table of participant's appointments [A1]
 \3 (3) Participant selects appointment from table
 \3 (4) System displays details for selected appointment
-\3 (5) Participant selects delete
+\3 (5) Participant selects cancel
 \3 (6) System displays confirmation prompt
-\3 (7) Participant selects confirm: appointment is deleted and system returns to (2) with an affirmation message
-\3 (8) Participant selects cancel: system returns to (4)
+\3 (7) Participant selects confirm: appointment is marked cancelled and system returns to (2) with an affirmation message
+\3 (8) Participant selects keep appointment: system returns to (4)
 \2 Alternate flows
 \3 [A1] Participant has no appointments
 \4 (2) displays an empty table
@@ -241,7 +241,7 @@ Every page also possesses a button to return to the system homepage.  This will 
 \3 System is in ready state
 \3 Participant has account
 \2 Post-conditions
-\3 Participant deleted selected appointment or participant cancelled operation
+\3 Participant cancelled selected appointment or participant cancelled operation
 \3 Researcher(s) owning said appointment's experiment are notified via email
 \2 Special Requirements:
 \3 N/A
