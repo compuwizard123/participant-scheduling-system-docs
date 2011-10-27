@@ -277,18 +277,13 @@ Every page also possesses a button to return to the system homepage.  This will 
 \3 Export Experiment Participant List
 
 \1 {\bf Name: Calendar/List of All Experiments}
-\2 Basic Description: The list will show the soonest to be conducted experiments (10) and will allow for a user to click and view more information on the experiment
+\2 Basic Description: The list will show all ongoing experiments and will allow for a user to click and view more information on the experiment
 \2 Basic Flow:
-\3 The system loads the first 10 experiments [A1]
-\3 The user can scroll down the list [A5]
-\3 The user selects an experiment
+\3 The system displays all experiments that have not yet occurred [A1]
+\3 The user can scroll down the list
+\3 The user selects an experiment, as per use case Select Experiment
 \2 Alternative Flow:
-\3 [A1] The system errors when loading the first 10 experiments from the database
-\3 [A2] The user goes to another website
-\3 [A3] The user attempts to log into the researcher page and fails
-\3 [A4] The user attempts to log into the researcher page and has success
-\3 [A5] The user clicks on the next 10 experiments and repeats basic flow 1 to 3
-\3 [A6] The user exits the browser
+\3 [A1] There are no experiments to display.  In this case, there is nothing to show the user, and no experiment can be selected.
 \2 Preconditions:
 \3 The user is on the web page
 \2 Postconditions:
