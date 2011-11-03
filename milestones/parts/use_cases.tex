@@ -1,8 +1,10 @@
 \section{Use Cases}
 \subsection{General Behaviour}
-Every page on the website possesses a ``login/logout/create account" button.  If the user is logged in, follow use case ``Logout".  Otherwise, follow use case ``Login".  In either case, unless noted otherwise, upon completion of that use case, the system will return to the page the button was clicked from.  If that page had user-entered fields, they will be in the same state they were when the user clicked the button.
+Every page on the website possesses a ``login/logout/create account" button.  If the user is logged in, follow use case ``Logout".  Otherwise, follow use case ``Login".  In either case, unless noted otherwise, upon completion of that use case, the system will return to the page the button was clicked from.  If that page had user-entered fields, they will be in the same state they were when the user clicked the button.  A common exception is when a researcher or admin account logs out of a researcher or admin page, in which case they will be returned to the homepage; unauthenticated users cannot view or use researcher-only features.
 
 Every page also possesses a button to return to the system homepage.  This will exit any use case they are currently following and discard any temporarily stored information related to that use case, such as entered fields or selected options.
+
+Whenever a table is displayed, there is some concern related to its size; however, due to the low expected number of experiments and participants per experiment, any handling of large tables will be outsourced to the browser (scroll bars being most common).  Because the whole table will be loaded at once, browser search functionality is also sufficient to handle most searching needs; tables that can be otherwise sorted, filtered, or searched will be specifically noted.
 
 \subsection{Authentication Use Cases}
 \begin{outline}[enumerate]
@@ -94,7 +96,7 @@ Every page also possesses a button to return to the system homepage.  This will 
 \2 Brief Description: Participant views and selects experiment to join
 \2 Actors: Participant (henceforth ``user")
 \2 Basic Flow:
-\3 User can sort or filter experiment table.
+\3 User can sort or filter experiment table by date, time, and location.
 \3 User clicks an experiment.  The system navigates them to that experiment's page.
 \3 Experiment page: Each experiment has a webpage with its name, description, and a list of timeslots, as well as a button to join the experiment.
 \3 User reads experiment description and required qualifications.
@@ -121,7 +123,7 @@ Every page also possesses a button to return to the system homepage.  This will 
 \3 The user clicks the ``Confirm Appointment" button. [A1] [A2]
 \3 If there are no problems with the entered data, the system returns the user to the homepage and displays a message informing them of their successful registration.  The system will also send an email containing the experiment and timeslot information to the email account used to register.
 \2 Alternate Flows:
-\3 [A1] User attempts to ``Confirm Appointment" before entering all required information/checking the check box.
+\3 [A1] User attempts to ``Confirm Appointment" before selecting a timeslot or checking the check box.
 \4 The system will return them to the confirmation page and inform them of what still needs to be done.
 \3 [A2] User logs out while on the confirmation page.  The system will return them to the experiment page.
 \2 Pre-conditions:
@@ -198,10 +200,10 @@ Every page also possesses a button to return to the system homepage.  This will 
 \2 Brief description: Researcher logs in and views a list of all participants for a selected experiment.
 \2 Actors: Researcher
 \2 Basic flow:
-\3 (1) Researcher logs in
-\3 System displays table of researcher's experiments [A1]
-\3 (2) Researcher selects experiment from table
-\3 System displays list of all participants for selected experiment
+\3 (1) Researcher logs in, using the Login use case with a Researcher account
+\3 (2) System displays table of researcher's experiments [A1]
+\3 (3) Researcher selects experiment from table
+\3 (4) System displays list of all participants for selected experiment
 \2 Alternate flows:
 \3 [A1] Researcher does not own any experiments
 \4 (2) displays an empty table
