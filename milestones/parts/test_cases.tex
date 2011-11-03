@@ -101,13 +101,16 @@
     \end{tabular}
 \end{table}
 
-\subsubsection{Login}
+\subsubsection{Create Account}
 \begin{outline}[enumerate]
 \1 [] Conditions:
 \2 [A] Email entered and is not in database
+\3 Emails must be of the form {\textless}name{\textgreater}@{\textless}domain{\textgreater}
 \2 [B] Password entered and follows guidelines
+\3 Password guidelines: must be at least six characters, containing at least two of the following character types: letters, numbers, special characters.
 \2 [C] Confirm password entered and matches password
 \2 [D] User name entered and follows guidelines
+\3 User name guidelines: Names cannot include any special characters other than periods, commas, and apostrophes.
 \end{outline}
 \begin{table}[!h]
     \begin{tabular}{|l|p{1in}|p{2.25in}|l|l|l|l|p{2.25in}|}
