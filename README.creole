@@ -6,22 +6,26 @@
 
 == Junior Project ==
 
-|=Name          |=Email address            |
-| Trey Cahill   | cahilltr@rose-hulman.edu |
-| Chris Gropp   | groppcw@rose-hulman.edu  |
-| Samad Jawaid  | jawaidss@rose-hulman.edu |
-| Kevin Risden  | risdenkj@rose-hulman.edu |
-| Sriram Mohan  | mohan@rose-hulman.edu    |
-| Jimmy Theis   | theisje@rose-hulman.edu  |
-| Allie Terrell | aterrell@cs.wisc.edu     |
+|=Name                |=Email address            |
+| Trey Cahill         | cahilltr@rose-hulman.edu |
+| Katherine Greenwald | greenwka@rose-hulman.edu |
+| Samad Jawaid        | jawaidss@rose-hulman.edu |
+| Kevin Risden        | risdenkj@rose-hulman.edu |
+| Stephen Chenoweth   | chenowet@rose-hulman.edu |
+| Alexander Lo        | loaj@rose-hulman.edu     |
+| Stephen Mayhew      | mayhewsw@rose-hulman.edu |
+| Allie Terrell       | aterrell@cs.wisc.edu     |
 
 * [[http://pss.csse.rose-hulman.edu|Prototype]]
 
 |=Username |=Password |
 | cahilltr | temp123  |
-| groppcw  | temp123  |
+| greenwka | temp123  |
 | jawaidss | temp123  |
 | risdenkj | temp123  |
+| chenowet | temp123  |
+| loaj     | temp123  |
+| mayhewsw | temp123  |
 | aterrell | temp123  |
 
 * [[https://github.com/compuwizard123/participant-scheduling-system-docs|GitHub (Documentation)]]
@@ -31,9 +35,10 @@
 
 === Meetings ===
 
-|=Role    |=Name          |=Day       |=Time     |
-| Advisor | Jimmy Theis   | Wednesday | 7:15 pm  |
-| Client  | Allie Terrell | Monday    | 11:45 am |
+|=Role    |=Name              |=Day    |=Time     |
+| Advisor | Stephen Chenoweth | Friday | 9:00 am  |
+| Manager | Stephen Mayhew    | TBD    | TBD      |
+| Client  | Allie Terrell     | Monday | 10:50 am |
 
 === Fall Deliverables ===
 
@@ -58,3 +63,8 @@
 ** [[https://github.com/compuwizard123/participant-scheduling-system-docs/raw/master/milestones/milestone-4.pdf|Milestone 4]]
 ** [[https://github.com/compuwizard123/participant-scheduling-system-docs/raw/master/milestones/milestone-5.pdf|Milestone 5]]
 * [[https://github.com/compuwizard123/participant-scheduling-system-docs/raw/master/other/Participant%20Scheduling%20System.pptx|Final Presentation]]
+
+=== Winter Deliverables ===
+
+* Milestones
+** [[https://github.com/compuwizard123/participant-scheduling-system-docs/raw/master/milestones/374-milestone-1.pdf|Milestone 1]]
