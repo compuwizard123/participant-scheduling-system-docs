@@ -1,0 +1,60 @@
+{{https://github.com/compuwizard123/participant-scheduling-system-docs/raw/master/images/rh.png|Rose-Hulman Institute of Technology}}
+
+= Rose-Hulman Institute of Technology =
+
+{{https://github.com/compuwizard123/participant-scheduling-system-docs/raw/master/images/pss.jpg|Participant Scheduling System}}
+
+== Junior Project ==
+
+|=Name          |=Email address            |
+| Trey Cahill   | cahilltr@rose-hulman.edu |
+| Chris Gropp   | groppcw@rose-hulman.edu  |
+| Samad Jawaid  | jawaidss@rose-hulman.edu |
+| Kevin Risden  | risdenkj@rose-hulman.edu |
+| Sriram Mohan  | mohan@rose-hulman.edu    |
+| Jimmy Theis   | theisje@rose-hulman.edu  |
+| Allie Terrell | aterrell@cs.wisc.edu     |
+
+* [[http://pss.csse.rose-hulman.edu|Prototype]]
+
+|=Username |=Password |
+| cahilltr | temp123  |
+| groppcw  | temp123  |
+| jawaidss | temp123  |
+| risdenkj | temp123  |
+| aterrell | temp123  |
+
+* [[https://github.com/compuwizard123/participant-scheduling-system-docs|GitHub (Documentation)]]
+* [[https://github.com/compuwizard123/participant-scheduling-system|GitHub (Code)]]
+* [[http://pss.csse.rose-hulman.edu/redmine|Redmine]]
+* [[http://hci.cs.wisc.edu|Official Site]]
+
+=== Meetings ===
+
+|=Role    |=Name          |=Day       |=Time     |
+| Advisor | Jimmy Theis   | Wednesday | 7:15 pm  |
+| Client  | Allie Terrell | Monday    | 11:45 am |
+
+=== Fall Deliverables ===
+
+* Individual Engineering Journals
+** [[http://www.twitter.com/cahilltr|Trey Cahill]]
+** [[https://github.com/compuwizard123/participant-scheduling-system-docs/raw/master/individual-engineering-journals/groppcw.pdf|Chris Gropp]]
+** [[https://github.com/compuwizard123/participant-scheduling-system-docs/raw/master/individual-engineering-journals/jawaidss.pdf|Samad Jawaid]]
+** [[https://github.com/compuwizard123/participant-scheduling-system-docs/raw/master/individual-engineering-journals/risdenkj.pdf|Kevin Risden]]
+* Weekly Assessment Reports
+** [[https://github.com/compuwizard123/participant-scheduling-system-docs/raw/master/weekly-assessment-reports/week-2.pdf|Week 2]]
+** [[https://github.com/compuwizard123/participant-scheduling-system-docs/raw/master/weekly-assessment-reports/week-3.pdf|Week 3]]
+** [[https://github.com/compuwizard123/participant-scheduling-system-docs/raw/master/weekly-assessment-reports/week-4.pdf|Week 4]]
+** [[https://github.com/compuwizard123/participant-scheduling-system-docs/raw/master/weekly-assessment-reports/week-5.pdf|Week 5]]
+** [[https://github.com/compuwizard123/participant-scheduling-system-docs/raw/master/weekly-assessment-reports/week-6.pdf|Week 6]]
+** [[https://github.com/compuwizard123/participant-scheduling-system-docs/raw/master/weekly-assessment-reports/week-7.pdf|Week 7]]
+** [[https://github.com/compuwizard123/participant-scheduling-system-docs/raw/master/weekly-assessment-reports/week-8.pdf|Week 8]]
+** [[https://github.com/compuwizard123/participant-scheduling-system-docs/raw/master/weekly-assessment-reports/week-9.pdf|Week 9]]
+* Milestones
+** [[https://github.com/compuwizard123/participant-scheduling-system-docs/raw/master/milestones/milestone-1.pdf|Milestone 1]]
+** [[https://github.com/compuwizard123/participant-scheduling-system-docs/raw/master/milestones/milestone-2.pdf|Milestone 2]]
+** [[https://github.com/compuwizard123/participant-scheduling-system-docs/raw/master/milestones/milestone-3.pdf|Milestone 3]]
+** [[https://github.com/compuwizard123/participant-scheduling-system-docs/raw/master/milestones/milestone-4.pdf|Milestone 4]]
+** [[https://github.com/compuwizard123/participant-scheduling-system-docs/raw/master/milestones/milestone-5.pdf|Milestone 5]]
+* [[https://github.com/compuwizard123/participant-scheduling-system-docs/raw/master/other/Participant%20Scheduling%20System.pptx|Final Presentation]]
