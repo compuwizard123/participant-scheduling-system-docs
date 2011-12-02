@@ -35,10 +35,10 @@
 
 === Meetings ===
 
-|=Role    |=Name              |=Day    |=Time     |
-| Advisor | Stephen Chenoweth | Friday | 9:00 am  |
-| Manager | Stephen Mayhew    | TBD    | TBD      |
-| Client  | Allie Terrell     | Monday | 10:50 am |
+|=Role    |=Name              |=Day      |=Time     |
+| Advisor | Stephen Chenoweth | Friday   |  9:00 am |
+| Manager | Stephen Mayhew    | Thursday | 11:00 am |
+| Client  | Allie Terrell     | Monday   | 10:50 am |
 
 === Fall Deliverables ===
 
