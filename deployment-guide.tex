@@ -1,0 +1,367 @@
+\documentclass{article}
+\usepackage{fullpage}
+\usepackage{graphicx}
+\usepackage{parskip}
+\usepackage{upquote}
+\begin{document}
+\begin{titlepage}
+\begin{center}
+\includegraphics[width=0.15\textwidth]{images/rh}\\[1.0cm]
+\textsc{\large Rose-Hulman Institute of Technology}\\[1.5cm]
+\includegraphics[width=0.75\textwidth]{images/pss}\\[1.0cm]
+\textsc{\large Deployment Guide}\\[1.0cm]
+\large Trey Cahill \hspace{0.2cm} Katie Greenwald \hspace{0.2cm} Samad Jawaid \hspace{0.2cm} Kevin Risden
+\end{center}
+\end{titlepage}
+\newpage
+
+\section{Introduction}
+
+This document will provide a very good sense of how to deploy the Participant
+Scheduling System, but it will not be a definite guide. Though most instructions
+include concrete examples, some steps may be missing. Pay special attention
+when configuring Nginx, Apache, and PostgreSQL. Furthermore, some values will
+need to be changed, like the references to \verb#rose-hulman.edu#. Good luck!
+
+\section{Install Nginx, Apache, mod\_wsgi, PostgreSQL, and Postfix}
+
+\subsection{Definitely}
+
+Command:
+\begin{verbatim}
+yum install nginx apache2 libapache2-mod-wsgi postgresql python-psycopg2 postfix
+\end{verbatim}
+
+\subsection{Maybe}
+
+Command:
+\begin{verbatim}
+yum install httpd mod_wsgi postgresql-server
+\end{verbatim}
+
+\subsection{Configure Nginx}
+
+File:
+\begin{verbatim}
+/etc/nginx/proxy.conf
+\end{verbatim}
+
+Contents:
+\begin{verbatim}
+proxy_redirect          off;
+proxy_set_header        Host            $host;
+proxy_set_header        X-Real-IP       $remote_addr;
+proxy_set_header        X-Forwarded-For $proxy_add_x_forwarded_for;
+client_max_body_size    10m;
+client_body_buffer_size 128k;
+proxy_connect_timeout   90;
+proxy_send_timeout      90;
+proxy_read_timeout      90;
+proxy_buffers           32 4k;
+\end{verbatim}
+
+File:
+\begin{verbatim}
+/etc/nginx/sites-available/pss.csse.rose-hulman.edu
+\end{verbatim}
+
+Contents:
+\begin{verbatim}
+server {
+    listen 137.112.40.203:80;
+    server_name pss.csse.rose-hulman.edu;
+
+    access_log /var/log/nginx/pss.csse.rose-hulman.edu.access.log;
+    error_log /var/log/nginx/pss.csse.rose-hulman.edu.error.log;
+
+    location / {
+        proxy_pass http://127.0.0.1:80/;
+        include /etc/nginx/proxy.conf;
+    }
+
+    location /static/admin {
+        alias /opt/django/django/contrib/admin/static/admin;
+        expires 24h;
+    }
+
+    location /static {
+        alias /srv/django/participant-scheduling-system/src/static;
+        expires 24h;
+    }
+}
+\end{verbatim}
+
+Command (note line break to remove):
+\begin{verbatim}
+ln -s /etc/nginx/sites-available/pss.csse.rose-hulman.edu \
+/etc/nginx/sites-enabled/pss.csse.rose-hulman.edu
+\end{verbatim}
+
+\subsection{Configure Apache}
+
+File:
+\begin{verbatim}
+/etc/httpd/conf.d/pss.csse.rose-hulman.edu
+\end{verbatim}
+
+Contents:
+\begin{verbatim}
+<VirtualHost 127.0.0.1:80>
+    ServerName pss.csse.rose-hulman.edu
+    ServerAdmin jawaidss@rose-hulman.edu
+
+    ErrorLog /var/log/httpd/pss.csse.rose-hulman.edu-error_log
+    CustomLog /var/log/httpd/pss.csse.rose-hulman.edu-access_log vhost_combined
+
+    ErrorDocument 403 "/403/"
+    ErrorDocument 404 "/404/"
+
+    WSGIScriptAlias / /srv/django/participant-scheduling-system/src/pss.wsgi
+</VirtualHost>
+\end{verbatim}
+
+\subsection{Configure PostgreSQL}
+
+Command (to edit the file):
+\begin{verbatim}
+su postgres
+\end{verbatim}
+
+File:
+\begin{verbatim}
+/var/lib/pgsql/data/pg_hba.conf
+\end{verbatim}
+
+Contents (to append to the file):
+\begin{verbatim}
+local   all         postgres                          ident
+local   pss         pss                               md5
+\end{verbatim}
+
+Command:
+\begin{verbatim}
+/etc/init.d/postgresql restart
+\end{verbatim}
+
+\section{Install Git, Subversion, and Mercurial}
+
+Command:
+\begin{verbatim}
+yum install git subversion mercurial
+\end{verbatim}
+
+\section{Install Django, Django Registration, Django Uni-Form, Django Ajax Validation, and Django Extensions}
+
+Commands:
+\begin{verbatim}
+svn co http://code.djangoproject.com/svn/django/trunk/ /opt/django
+hg clone https://bitbucket.org/ubernostrum/django-registration /opt/.
+git clone https://github.com/pydanny/django-uni-form.git /opt/.
+git clone https://github.com/alex/django-ajax-validation.git /opt/.
+git clone https://github.com/django-extensions/django-extensions.git /opt/.
+\end{verbatim}
+
+Command (example return value is \verb#/usr/lib/python2.7/site-packages#):
+\begin{verbatim}
+python -c "from distutils.sysconfig import get_python_lib; print get_python_lib()"
+\end{verbatim}
+
+File:
+\begin{verbatim}
+/usr/lib/python2.7/site-packages/ajax_validation.pth
+\end{verbatim}
+
+Contents:
+\begin{verbatim}
+/opt/django-ajax-validation
+\end{verbatim}
+
+File:
+\begin{verbatim}
+/usr/lib/python2.7/site-packages/django_extensions.pth
+\end{verbatim}
+
+Contents:
+\begin{verbatim}
+/opt/django-extensions
+\end{verbatim}
+
+File:
+\begin{verbatim}
+/usr/lib/python2.7/site-packages/django.pth
+\end{verbatim}
+
+Contents:
+\begin{verbatim}
+/opt/django
+\end{verbatim}
+
+File:
+\begin{verbatim}
+/usr/lib/python2.7/site-packages/registration.pth
+\end{verbatim}
+
+Contents:
+\begin{verbatim}
+/opt/django-registration
+\end{verbatim}
+
+File:
+\begin{verbatim}
+/usr/lib/python2.7/site-packages/uni_form.pth
+\end{verbatim}
+
+Contents:
+\begin{verbatim}
+/opt/django-uni-form
+\end{verbatim}
+
+Command:
+\begin{verbatim}
+ln -s /opt/django/django/bin/django-admin.py /usr/bin
+\end{verbatim}
+
+\section{Install Participant Scheduling System}
+
+Commands (note line break to remove):
+\begin{verbatim}
+mkdir /srv/django
+git clone https://github.com/compuwizard123/participant-scheduling-system.git \
+/srv/django/.
+\end{verbatim}
+
+\subsection{To reset}
+
+Commands:
+\begin{verbatim}
+cd /srv/django/participant-scheduling-system/src
+./production-django-admin resetall
+\end{verbatim}
+
+\section{Everything Else}
+
+File:
+\begin{verbatim}
+~/pss.py
+\end{verbatim}
+
+Contents:
+\begin{verbatim}
+#!/usr/bin/env python
+
+path_to_settings = '/srv/django/participant-scheduling-system/src/pss/settings.py'
+
+changes = (
+    ('DEBUG = True', 'DEBUG = False'),
+    ("'USER': 'jawaidss'", "'USER': 'pss'"),
+)
+
+old_settings = open(path_to_settings)
+settings = old_settings.read()
+old_settings.close()
+
+for change in changes:
+    settings = settings.replace(*change)
+
+new_settings = open(path_to_settings, 'w')
+new_settings.write(settings)
+new_settings.close()
+\end{verbatim}
+
+\begin{verbatim}
+chmod +x ~/update.py
+\end{verbatim}
+
+File:
+\begin{verbatim}
+~/update-pss
+\end{verbatim}
+
+Contents (note line break to remove):
+\begin{verbatim}
+#!/bin/bash
+if [ "$(whoami)" == "root" ]; then
+    cd /var/backups/postgres
+    sudo -u postgres pg_dump --no-owner --format=c pss > \
+pss.dump.$(date +"%Y-%m-%d-%H-%M-%S")
+    FOLDER=/srv/django/participant-scheduling-system
+    cd $FOLDER
+    git reset --hard HEAD
+    git pull
+    ./pss.py
+    chown -R apache:apache $FOLDER
+    /etc/init.d/httpd reload
+    /etc/init.d/nginx reload
+else
+    echo "sudo?"
+fi
+\end{verbatim}
+
+File:
+\begin{verbatim}
+~/update.py
+\end{verbatim}
+
+Contents:
+\begin{verbatim}
+#!/usr/bin/env python
+
+import datetime
+import os
+
+IGNORE = (
+)
+
+WORKSPACE = '/opt'
+SVN = 'svn'
+HG = 'hg'
+GIT = 'git'
+
+def _print_line():
+    print '-' * 80
+
+def _execute(program, *args):
+    os.system('%s %s' % (program, ' '.join(args)))
+
+def _update(folder):
+    print folder
+    os.chdir(folder)
+    files = os.listdir(folder)
+    if '.' + SVN in files:
+        _execute(SVN, 'up')
+    if '.' + HG in files:
+        _execute(HG, 'pull')
+        _execute(HG, 'update')
+    if '.' + GIT in files:
+        _execute(GIT, 'pull')
+    _print_line()
+
+def main():
+    now = datetime.datetime.now()
+    _print_line()
+    for folder in os.listdir(WORKSPACE):
+        if not folder.startswith('.') and not folder in IGNORE:
+            _update(os.path.join(WORKSPACE, folder))
+    then = datetime.datetime.now()
+    print (then - now).seconds, 'seconds'
+    _print_line()
+
+if __name__ == '__main__':
+    main()
+\end{verbatim}
+
+\subsection{To update Participant Scheduling System}
+
+Command:
+\begin{verbatim}
+./update-pss
+\end{verbatim}
+
+\subsection{To update everything else}
+
+Command:
+\begin{verbatim}
+./update.py
+\end{verbatim}
+
+\end{document}
