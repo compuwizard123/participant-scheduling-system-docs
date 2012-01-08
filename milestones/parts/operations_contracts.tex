@@ -7,4 +7,30 @@ Cross References: Uses Cases: Select Experiment
 Preconditions: The participant has loaded the web page.
 Postconditions:	- experiments collection was created (instance creation)
 			
+\subsection{LoadExperiments}
+Operation: LoadExperiment(ID)
+Cross References: Uses Cases: Select Experiment
+Preconditions: The participant as clicked on an experiment.
+Postconditions:	- experiment was created (instance creation)
+			- experiment attributes was loaded into the web page
+
+\subsection{Sign Up Experiment}
+Operation: signupExperiment()
+Cross Reference: Sign up for Experiment
+Preconditions: The participant has clicked on an experiment to sign up for
+Postconditions:	- LogIn was created (instance creation)
+			- LogIn.logged became loggedIn (attribute modification)
+
+\subsection{Verify Sign up}
+Operation: VerifySignup(Login)
+Cross Reference: Sign up for Experiment
+Preconditions: The participant has logged into or created an account
+Postconditions:	-  this.hasConflict is set to true (attribute modification)
+
+\subsection( Verity Appointment)
+Operation: VerifiyAppointment(Time,Date)
+Cross Reference: Sign up for Experiment
+Preconditions: The participant has selected a time and date slot.
+Postconditions:	- experiment.slots has been modified (attribute modification)
+			- Database is updated
 
