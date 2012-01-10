@@ -1,6 +1,24 @@
 \section{Operations Contracts}
 This section provides operation contracts for vital operations.
 
+\subsection{CreateExperiment}
+\begin{tabular}{|l|l|}
+\hline Operation: & CreateExperiment() \\ 
+\hline Cross References: & Uses Cases: Add Experiment \\ 
+\hline Preconditions & User is an Administrator and/or a Researcher and has authenticated \\ 
+\hline Postconditions: & Experiment object will have been created, or an error message will have been displayed \\
+\hline 
+\end{tabular}
+
+\subsection{ModifyExperiment}
+\begin{tabular}{|l|l|}
+\hline Operation: & ModifyExperiment(ID) \\ 
+\hline Cross References: & Uses Cases: Modify Experiment \\ 
+\hline Preconditions & User is an Administrator and/or a Researcher and has authenticated \\ 
+\hline Postconditions: & The experiment object will have its fields modified, will have been deleted, or an error message will have been displayed \\
+\hline 
+\end{tabular}
+
 \subsection{LoadExperiments}
 \begin{tabular}{|l|l|}
 \hline Operation: & LoadExperiments() \\ 
