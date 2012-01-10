@@ -2,35 +2,49 @@
 This section provides operation contracts for vital operations.
 
 \subsection{LoadExperiments}
-Operation: LoadExperiments()
-Cross References: Uses Cases: Select Experiment
-Preconditions: The participant has loaded the web page.
-Postconditions:	- experiments collection was created (instance creation)
-			
-\subsection{LoadExperiments}
-Operation: LoadExperiment(ID)
-Cross References: Uses Cases: Select Experiment
-Preconditions: The participant as clicked on an experiment.
-Postconditions:	- experiment was created (instance creation)
-			- experiment attributes was loaded into the web page
+\begin{tabular}{|l|l|}
+\hline Operation: & LoadExperiments() \\ 
+\hline Cross References: & Uses Cases: Select Experiment \\ 
+\hline Preconditions & The participant has loaded the web page. \\ 
+\hline Postconditions: & Experiments collection was created (instance creation) \\
+\hline 
+\end{tabular}
+
+\subsection{LoadExperiment}
+\begin{tabular}{|l|l|}
+\hline Operation: & LoadExperiment(ID) \\ 
+\hline Cross References: & Uses Cases: Select Experiment \\ 
+\hline Preconditions & The participant as clicked on an experiment. \\ 
+\hline Postconditions: & Experiment was created (instance creation) \\
+\hline & Experiment attributes was loaded into the web page \\
+\hline 
+\end{tabular}
 
 \subsection{Sign Up Experiment}
-Operation: signupExperiment()
-Cross Reference: Sign up for Experiment
-Preconditions: The participant has clicked on an experiment to sign up for
-Postconditions:	- LogIn was created (instance creation)
-			- LogIn.logged became loggedIn (attribute modification)
+\begin{tabular}{|l|l|}
+\hline Operation: & SignupExperiment() \\ 
+\hline Cross References: & Uses Cases: Sign up for Experiment \\ 
+\hline Preconditions & The participant has clicked on an experiment to sign up for \\ 
+\hline Postconditions: & LogIn was created (instance creation) \\
+\hline & LogIn.logged became loggedIn (attribute modification) \\
+\hline 
+\end{tabular}
 
 \subsection{Verify Sign up}
-Operation: VerifySignup(Login)
-Cross Reference: Sign up for Experiment
-Preconditions: The participant has logged into or created an account
-Postconditions:	-  this.hasConflict is set to false (attribute modification)
+\begin{tabular}{|l|l|}
+\hline Operation: & VerifySignup(Login) \\ 
+\hline Cross References: & Uses Cases: Sign up for Experiment \\ 
+\hline Preconditions & The participant has logged into or created an account \\ 
+\hline Postconditions: & this.hasConflict is set to false (attribute modification) \\
+\hline 
+\end{tabular}
 
-\subsection( Verity Appointment)
-Operation: VerifiyAppointment(Time,Date)
-Cross Reference: Sign up for Experiment
-Preconditions: The participant has selected a time and date slot.
-Postconditions:	- experiment.slots has been modified (attribute modification)
-			- Database is updated
-
+\subsection{Verify Appointment}
+\begin{tabular}{|l|l|}
+\hline Operation: & VerifyAppointment(Time,Date) \\ 
+\hline Cross References: & Uses Cases: Sign up for Experiment \\ 
+\hline Preconditions & The participant has selected a time and date slot. \\ 
+\hline Postconditions: & experiment.slots has been modified (attribute modification) \\
+\hline & Database is updated \\
+\hline 
+\end{tabular}
