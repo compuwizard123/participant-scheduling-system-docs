@@ -1,10 +1,21 @@
 \section{GRASP Principles}
 \subsection{Creator}
+
 \subsection{Info Expert}
+
 \subsection{Controller}
+
 \subsection{High Cohesion}
+
 \subsection{Low Coupling}
+
 \subsection{Pure Fabrication}
+
 \subsection{Indirection}
+ExperimentDate, ExperimentDateTimeRange
+
 \subsection{Polymorphism}
+Currently, the Participant Scheduling System requires both researchers and participants. In order to accomplish this, a User class was introduced to provide a standard base class and then the Researcher class was derived from this. This provides our solution with the polymorphism GRASP principle. The other option was to create two separate classes for researcher and user, but then there would be duplicated code. Furthermore, if there needs to be another type of user then it will be simpler to just extend the current User class.
+
 \subsection{Protected Variation}
+In our system, protected variation builds off our decision for polymorphism. The User class enables the protected variation GRASP principle since it protects us from changes in the type of users who need to use the system. If the client comes back with a request for another type of user besides participant and researcher, the system is setup to handle this by just extending the User class. This provides the most elegant solution to the problem since the other option would have been to create the different user classes separately and would make it difficult to extend later.
