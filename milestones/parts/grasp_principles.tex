@@ -12,7 +12,7 @@
 \subsection{Pure Fabrication}
 
 \subsection{Indirection}
-ExperimentDate, ExperimentDateTimeRange
+The GRASP principle indirection directly relates to our system for how we need to represent experiment dates and the experiment datetime ranges. An experiment must keep track of the dates and time slots for each day that it is offered. We decided that having two intermediate classes, ExperimentDate and ExperimentDateTimeRange, would reduce coupling and ensure easier maintainability of the system. The ExperimentDate class keeps track of the slots that the ExperimentDateTimeRange can generate. This enables the user to enter a time range and the system will then calculate the specific time slots. The Experiment class just has to have the ExperimentDates. This makes the coupling of time slots to experiments cleaner. An alternative would be for the experiment to have a massive list of all the dates and slots that it is offered. This would make it difficult to add or remove slots later and not know which slots are current filled participants.
 
 \subsection{Polymorphism}
 Currently, the Participant Scheduling System requires both researchers and participants. In order to accomplish this, a User class was introduced to provide a standard base class and then the Researcher class was derived from this. This provides our solution with the polymorphism GRASP principle. The other option was to create two separate classes for researcher and user, but then there would be duplicated code. Furthermore, if there needs to be another type of user then it will be simpler to just extend the current User class.
