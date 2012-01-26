@@ -1,9 +1,12 @@
 \section{GRASP Principles}
 \subsection{Creator}
+In our system, there are many objects which must be created.  One notable example of this is the creation of participation slots.  A date-time range, the time period over which the experiment is being run, can create for itself several slots, or chunks within the time period, which participants can sign up for.  Since these slots only pertain to one date-time range, the range is the one to create and manage them.
 
 \subsection{Info Expert}
+For information expert, an example from our system would be the Experiment class.  An Experiment has knowledge of ExperimentDate, ExperimentDateTimeRange, Slots, Appointments, Participants, Room, Researchers, and everything else pertaining to an instance of an experiment.  When something needs to be done by or to an experiment, that experiment will have all of the necessary information, so it can be relied on to complete those tasks.
 
 \subsection{Controller}
+One nice example of a controller in our system is the URLs.  Each URL can be broken up so the system will know what should handle the user's input.  For example, in the case of experiments/dates/edit/[an experiment id], the system would turn to the experiment editing code.  Each URL our system uses works this way, meaning that all the power of what is displayed on each page is delegated exclusively by the URL handling.
 
 \subsection{High Cohesion}
 High cohesion is achieved in many parts of our code, but an example of where cohesion is extremely strong is in the Administration code.  All of our Administration  procedures, fields, responsibilities, and all similar objects are located in the administration package, specifically in the django.contrib.admin package as seen in the package diagram in section 4 of this document.  By having administration as its own package, it leaves other administration tasks out of other unrelated classes in our system.
