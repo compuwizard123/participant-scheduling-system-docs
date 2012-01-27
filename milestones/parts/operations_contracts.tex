@@ -66,3 +66,24 @@ This section provides operation contracts for vital operations.
 \hline & Database is updated \\
 \hline 
 \end{tabular}
+
+\subsection{Create Account}
+\begin{tabular}{|l|l|}
+\hline Operation: & CreateAccount() \\ 
+\hline Cross References: & Uses Cases: Create Account \\ 
+\hline Preconditions & None. \\ 
+\hline Postconditions: & The user has an account. \\
+\hline & A verification email has been sent to the specified email address.  \\
+\hline & The user is logged in. \\
+\hline 
+\end{tabular}
+
+\subsection{Login}
+\begin{tabular}{|l|l|}
+\hline Operation: & Login() \\ 
+\hline Cross References: & Uses Cases: Login \\ 
+\hline Preconditions & The user has an account. \\ 
+\hline Postconditions: & The user is logged in. \\
+\hline & Appropriate rights have been given to the account logged in. \\
+\hline 
+\end{tabular}
