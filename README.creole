@@ -67,9 +67,11 @@
 === Winter Deliverables ===
 
 * [[https://github.com/compuwizard123/participant-scheduling-system-docs/raw/master/374-team-engineering-journal.pdf|Team Engineering Journal]]
+* [[https://github.com/compuwizard123/participant-scheduling-system-docs/raw/master/project_plan.pdf|Project Plan]]
 * Milestones
 ** [[https://github.com/compuwizard123/participant-scheduling-system-docs/raw/master/milestones/374-milestone-1.pdf|Milestone 1]]
 ** [[https://github.com/compuwizard123/participant-scheduling-system-docs/raw/master/milestones/374-milestone-2.pdf|Milestone 2]]
 ** [[https://github.com/compuwizard123/participant-scheduling-system-docs/raw/master/milestones/374-milestone-3.pdf|Milestone 3]]
 ** [[https://github.com/compuwizard123/participant-scheduling-system-docs/raw/master/milestones/374-milestone-4.pdf|Milestone 4]]
+** [[https://github.com/compuwizard123/participant-scheduling-system-docs/raw/master/milestones/374-milestone-5.pdf|Milestone 5]]
 * [[https://github.com/compuwizard123/participant-scheduling-system-docs/raw/master/deployment-guide.pdf|Deployment Guide]]
