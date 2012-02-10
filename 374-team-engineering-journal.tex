@@ -97,4 +97,44 @@ sortable, searchable table with ease. This required a bit more knowledge to setu
 ability of our group. We were able to implement this feature and not spend as much time have to come up with
 a solution to do it ourselves.
 
+\section{Thursday, February 9, 2012} % Samad
+Our client finally reported back to us with details about her
+production server. Over nineteen weeks ago, she led us to believe that
+our web application would be deployed on a Fedora virtual private
+server. None of us were too familiar with Fedora, but we prototyped on
+a Fedora virtual private server anyway. Even though we preferred
+Ubuntu, we decided it was more important to match the client's
+specifications than our preferences. Everything works very well on our
+prototype, and we even wrote a step-by-step deployment guide for this
+setup.
+
+With one week remaining in the project, some major obstacles have been
+placed before us; for example, the client actually does not have a
+virtual private server! Hence, we cannot use all of the tools we
+initially planned to use like nginx for static content or mod\_wsgi.
+Furthermore, our client does not even have sudo privileges on her
+``server.'' We are hoping that we can make the required adjustments to
+our deployment plan in the remaining time. It would be a travesty for
+our project to not be used, not because it was not awesome software
+but because our client could not deploy it.
+
+\section{Friday, February 10, 2012} % Samad
+For the sake of focusing on deploying our project, we have had to make
+a difficult decision to not finish a few minor coding tasks. First,
+there are two small bugs that will not be addressed: one is that dates
+and times are sorted alphabetically and therefore incorrectly in our
+tables, and the other is that {\tt ExperimentDateTimeRange}s are not
+completely validated in the administration, part of a very rare use
+case. Additionally, when researchers modify or delete {\tt
+Experiment}s, {\tt ExperimentDate}s, or {\tt
+ExperimentDateTimeRange}s, they are not warned of deleting related
+{\tt Slot}s or {\tt Appointment}s. Researchers also wanted the ability
+to create {\tt Building}s\textbackslash{\tt Room}s and {\tt
+Qualification}s themselves, but instead an administrator will have to
+do so for them. Finally, allowing researchers to mass-delete {\tt
+Experiment}s and view all {\tt Appointment}s in a calendar will not be
+implemented. We sincerely believe that none of this will detract from
+the overall usefulness of our product.
+
+
 \end{document}
