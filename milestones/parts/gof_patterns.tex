@@ -1,3 +1,9 @@
 \section{Gang of Four Principles}
 \subsection{Observer}
 The class views.py is an observer pattern, as in the class it recieves a request, which then completes the request.  The views class reacts to what request it is given and then return the correct view for the page to display, with the correct information and checking for correct authorization for each request, so that a particpant cannot create an experiment.
+
+\subsection{Factory}
+One example of a factory would be the date-time ranges creating participation slots.  Depending on the specifications of the reasearcher, the date-time ranges will create time slots for the participants to sign up for.
+
+\subsection{Facade}
+The URL handler is an example of a facade in our system.  The URL is broken up so the system can handle the user's input.  For example, in the case of experiments/dates/edit/[an experiment id], the system would turn to the experiment editing code.  All the URLs in the system work this way, so the URL handler has the job a facade, and passes information back and forth between the UI and the back end.
